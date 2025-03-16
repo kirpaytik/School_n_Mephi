@@ -1,0 +1,294 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset204 Calibri;}}
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 A= str(input())\par
+B= str(input())\par
+C= str(input())\par
+D= str(input())\par
+\par
+ax = int( A[0 : A.find(' ')] )\par
+bx = int( B[0 : B.find(' ')] )\par
+cx = int( C[0 : C.find(' ')] )\par
+dx = int( D[0 : D.find(' ')] )\par
+\par
+ay = int( A[A.find(' ')+1 : ] )\par
+by = int( B[B.find(' ')+1 : ] )\par
+cy = int( C[C.find(' ')+1 : ] )\par
+dy = int( D[D.find(' ')+1 : ] )\par
+\par
+def rasstoyanie(x1,x2,y1,y2,gip):\par
+    kat1 = abs(x2-x1)\par
+    kat2 = abs(y2-y1)\par
+    gip = (kat1**2 + kat2**2)**0.5\par
+    return gip\par
+   \par
+AB = rasstoyanie(ax, bx, ay, by, AB)\par
+BC = rasstoyanie(bx, cx, by, cy, BC)\par
+CD = rasstoyanie(cx, dx, cy, dy, CD)\par
+AD = rasstoyanie(ax, dx, ay, dy, AD)\par
+\par
+if figure = '\f1\lang1049\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea':\par
+\tab vpisokr = '\'cc\'ee\'e6\'ed\'ee \'e2\'ef\'e8\'f1\'e0\'f2\'fc \'ee\'ea\'f0\'f3\'e6\'ed\'ee\'f1\'f2\'fc'\par
+\tab opisokr = '\'cc\'ee\'e6\'ed\'ee \'ee\'ef\'e8\'f1\'e0\'f2\'fc \'ee\'ea\'f0\'f3\'e6\'ed\'ee\'f1\'f2\'fc'\par
+\tab if A==B or B==C or C==D or A==D:                            # \'c5\'f1\'eb\'e8 2 \'f2\'ee\'f7\'ea\'e8 \'f1\'ee\'e2\'ef\'e0\'e4\'e0\'fe\'f2\par
+\tab\tab if A==D or B==D or C==D:\par
+\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab elif A==C or B==C:\par
+\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab elif A==B:\par
+\tab\tab\tab treygolnik = 'ACD'\par
+\tab elif A!=B and A!=C and A!=D and B!=C and B!=D and C!=D:     # \'c5\'f1\'eb\'e8 1 \'f2\'ee\'f7\'ea\'e0 \'eb\'e5\'e6\'e8\'f2 \'ed\'e0 \'f1\'f2\'ee\'f0\'ee\'ed\'e5 \'f2\'f0\'e5\'f3\'e3\'eb\'fc\'ed\'e8\'ea\'e0\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if (dx == ax) or (dy == Kkoefac * dx + Bkoefac) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab if dx == ax:\par
+\tab\tab\tab\tab\tab if AB>AD and AB>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AB and AD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab\tab elif BD>AB and BD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefac * dx + Bkoefac:\par
+\tab\tab\tab\tab\tab if AC>AD and AC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AC and AD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>AC and CD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefbc * dx + Bkoefbc:\par
+\tab\tab\tab\tab\tab if BC>BD and BC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif BD>BC and BD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>BC and CD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab elif cx == ax:\par
+\tab\tab\tab\tab if AB>AC and AB>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab elif AC>AB and AC>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab elif BC>AB and BC>AC:\par
+\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab elif ax == cx:\par
+\tab\tab\tab if (dy == Kkoefab * dx + Bkoefab) or (dx == ax) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab if dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab\tab if AB>AD and AB>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AB and AD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab\tab elif BD>AB and BD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab\tab if AC>AD and AC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AC and AD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>AC and CD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefbc * dx + Bkoefbc:\par
+\tab\tab\tab\tab\tab if BC>BD and BC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif BD>BC and BD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>BC and CD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab elif bx == ax:\par
+\tab\tab\tab\tab if AB>AC and AB>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab elif AC>AB and AC>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab elif BC>AB and BC>AC:\par
+\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab elif bx == cx:\par
+\tab\tab\tab if (dy == Kkoefab * dx + Bkoefab) or (dy == Kkoefac * dx + Bkoefac) or (dx == bx):\par
+\tab\tab\tab\tab if dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab\tab if AB>AD and AB>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AB and AD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab\tab elif BD>AB and BD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefac * dx + Bkoefac:\par
+\tab\tab\tab\tab\tab if AC>AD and AC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AC and AD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>AC and CD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dx == bx:\par
+\tab\tab\tab\tab\tab if BC>BD and BC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif BD>BC and BD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>BC and CD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab elif ax == bx:\par
+\tab\tab\tab\tab if AB>AC and AB>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab elif AC>AB and AC>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab elif BC>AB and BC>AC:\par
+\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab elif ax!=bx  and  ax!=cx  and  bx!=cx:\par
+\tab\tab\tab if (dy == Kkoefab * dx + Bkoefab) or (dy == Kkoefac * dx + Bkoefac) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab if dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab\tab if AB>AD and AB>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AB and AD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab\tab elif BD>AB and BD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefac * dx + Bkoefac:\par
+\tab\tab\tab\tab\tab if AC>AD and AC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif AD>AC and AD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>AC and CD>AD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\tab\tab\tab\tab elif dy == Kkoefbc * dx + Bkoefbc:\par
+\tab\tab\tab\tab\tab if BC>BD and BC>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABC'\par
+\tab\tab\tab\tab\tab elif BD>BC and BD>CD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab\tab elif CD>BC and CD>BD:\par
+\tab\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab elif cy == Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab\tab if AB>AC and AB>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ABD'\par
+\tab\tab\tab\tab elif AC>AB and AC>BC:\par
+\tab\tab\tab\tab\tab treygolnik = 'ACD'\par
+\tab\tab\tab\tab elif BC>AB and BC>AC:\par
+\tab\tab\tab\tab\tab treygolnik = 'BCD'\par
+\par
+\tab if treygolnik = 'ABC':                                      # \'ca\'e0\'ea\'ee\'e9 \'f2\'f0\'e5\'e3\'f3\'ee\'eb\'fc\'ed\'e8\'ea 1 \'e8\'e7 4\par
+\tab\tab if AB==AC or AB==BC or AC==BC:                          # \'c2\'e8\'e4 \'ef\'ee \'f1\'f2\'ee\'f0\'ee\'ed\'e0\'ec\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'e1\'e5\'e4\'f0\'e5\'ed\'ed\'fb\'e9 '\par
+\tab\tab elif AB==AC and AB==BC:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\tab\tab elif AB!=AC and AB!=BC and AC!=BC:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e7\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\par
+\tab\tab if AB>AC and AB>BC:                                     # \'c2\'e8\'e4 \'ef\'ee \'f3\'e3\'eb\'e0\'ec\par
+\tab\tab\tab if AB**2 > AC**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AB**2 == AC**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AB**2 < AC**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif AC>AB and AC>BC:\par
+\tab\tab\tab if AC**2 > AB**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AC**2 == AB**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AC**2 < AB**2 + BC**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif BC>AB and BC>AC:\par
+\tab\tab\tab if BC**2 > AB**2 + AC**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BC**2 == AB**2 + AC**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BC**2 < AB**2 + AC**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\par
+\tab\tab P = AB + AC + BC\par
+\tab\tab p = P/2\par
+\tab\tab S = (p * (p-AB) * (p-ac) * (p-BC))**0.5\par
+\tab elif treygolnik = 'ABD':                                    # \'ca\'e0\'ea\'ee\'e9 \'f2\'f0\'e5\'e3\'f3\'ee\'eb\'fc\'ed\'e8\'ea 2 \'e8\'e7 4\par
+\tab\tab if AB==AD or AB==BD or AD==BD:                          # \'c2\'e8\'e4 \'ef\'ee \'f1\'f2\'ee\'f0\'ee\'ed\'e0\'ec\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'e1\'e5\'e4\'f0\'e5\'ed\'ed\'fb\'e9 '\par
+\tab\tab elif AB==AD and AB==BD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\tab\tab elif AB!=AD and AB!=BD and AD!=BD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e7\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\par
+\tab\tab if AB>AD and AB>BD:                                     # \'c2\'e8\'e4 \'ef\'ee \'f3\'e3\'eb\'e0\'ec\par
+\tab\tab\tab if AB**2 > AD**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AB**2 == AD**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AB**2 < AD**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif AD>AB and AD>BD:\par
+\tab\tab\tab if AD**2 > AB**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AD**2 == AB**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AD**2 < AB**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif BD>AB and BD>AD:\par
+\tab\tab\tab if BD**2 > AB**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BD**2 == AB**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BD**2 < AB**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\par
+\tab\tab P = AB + AD + BD\par
+\tab\tab p = P/2\par
+\tab\tab S = (p * (p-AB) * (p-AD) * (p-BD))**0.5\par
+\tab elif treygolnik = 'ACD':                                    # \'ca\'e0\'ea\'ee\'e9 \'f2\'f0\'e5\'e3\'f3\'ee\'eb\'fc\'ed\'e8\'ea 3 \'e8\'e7 4\par
+\tab\tab if AC==AD or AC==CD or AD==CD:                          # \'c2\'e8\'e4 \'ef\'ee \'f1\'f2\'ee\'f0\'ee\'ed\'e0\'ec\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'e1\'e5\'e4\'f0\'e5\'ed\'ed\'fb\'e9 '\par
+\tab\tab elif AC==AD and AC==CD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\tab\tab elif AC!=AD and AC!=CD and AD!=CD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e7\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\par
+\tab\tab if AC>AD and AC>CD:                                     # \'c2\'e8\'e4 \'ef\'ee \'f3\'e3\'eb\'e0\'ec\par
+\tab\tab\tab if AC**2 > AD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AC**2 == AD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AC**2 < AD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif AD>AC and AD>CD:\par
+\tab\tab\tab if AD**2 > AC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AD**2 == AC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif AD**2 < AC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif CD>AC and CD>AD:\par
+\tab\tab\tab if CD**2 > AC**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif CD**2 == AC**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif CD**2 > AC**2 + AD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'eb\'fc\'ed\'fb\'e9'\par
+\par
+\tab\tab P = AC + AD + CD\par
+\tab\tab p = P/2\par
+\tab\tab S = (p * (p-AC) * (p-AD) * (p-CD))**0.5\par
+\tab elif treygolnik = 'BCD':\par
+\tab\tab if BC==BD or BC==CD or BD==CD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'e1\'e5\'e4\'f0\'e5\'ed\'ed\'fb\'e9 '\par
+\tab\tab elif BC==BD and BC==CD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e2\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\tab\tab elif BC!=BD or BC!=CD or BD!=CD:\par
+\tab\tab\tab vidtr = '\'d0\'e0\'e7\'ed\'ee\'f1\'f2\'ee\'f0\'ee\'ed\'ed\'e8\'e9 '\par
+\par
+\tab\tab if BC>BD and BC>CD:\par
+\tab\tab\tab if BC**2 > BD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BC**2 == BD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'e9'\par
+\tab\tab\tab elif BC**2 < BD**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif BD>BC and BD>CD:\par
+\tab\tab\tab if BD**2 > BC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif BD**2 == BC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'e9'\par
+\tab\tab\tab elif BD**2 < BC**2 + CD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab elif CD>BC and CD>BD:\par
+\tab\tab\tab if CD**2 > BC**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'f2\'f3\'ef\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\tab\tab\tab elif CD**2 == BC**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ef\'f0\'ff\'ec\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'e9'\par
+\tab\tab\tab elif CD**2 < BC**2 + BD**2:\par
+\tab\tab\tab\tab vidtr += '\'ee\'f1\'f2\'f0\'ee\'f3\'e3\'ee\'eb\'fc\'ed\'fb\'e9'\par
+\par
+\tab\tab P = BC + BD + CD\par
+\tab\tab p = P/2\par
+\tab\tab S = (p * (p-BC) * (p-BD) * (p-CD))**0.5\f0\lang9\par
+}
+ 

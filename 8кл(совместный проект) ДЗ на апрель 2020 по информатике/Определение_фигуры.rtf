@@ -1,0 +1,136 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset204 Calibri;}}
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang1033 if A!=B and A!=C and A!=D and B!=C adn B!=D and C!=D:     # \f1\lang1049\'c5\'f1\'eb\'e8 \'e2\'f1\'e5 \'f2\'ee\'f7\'ea\'e8 \'ed\'e5 \'f1\'ee\'e2\'ef\'e0\'e4\'e0\'fe\'f2\par
+\tab if ax == bx:\par
+\tab\tab if cx != ax:\par
+\tab\tab\tab Kkoefac = (ay - cy)/(ax - cx)\par
+\tab\tab\tab Bkoefac = ay - KkoefAC * ax\par
+\tab\tab\tab Kkoefbc = (by - cy)/(bx - cx)\par
+\tab\tab\tab Bkoefbc = by - KkoefBC * bx\par
+\tab\tab\tab if (dx != ax) and (dy != Kkoefac * dx + Bkoefac) and (dy != Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab figure = '\'d7\'e5\'f2\'fb\'f0\'b8\'f5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif (dx == ax) or (dy == Kkoefac * dx + Bkoefac) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab elif cx == ax:\par
+\tab\tab\tab if dx != ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif ax != bx:\par
+\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab Bkoefab = ay - KkoefAB * ax\par
+\tab\tab if cy != Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab if cx == ax:\par
+\tab\tab\tab\tab Kkoefbc = (by - cy)/(bx - cx)\par
+\tab\tab\tab\tab Bkoefbc = by - KkoefBC * bx\par
+\tab\tab\tab\tab if (dx != ax) and (dy != Kkoefab * dx + Bkoefab) and (dy != Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab\tab figure = '\'d7\'e5\'f2\'fb\'f0\'b8\'f5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab\tab elif (dx == ax) or (dy == Kkoefab * dx + Bkoefab) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'ed\'e8\'ea'\par
+\tab\tab\tab elif cx != ax:\par
+\tab\tab\tab\tab Kkoefac = (ay - cy)/(ax - cx)\par
+\tab\tab\tab\tab Bkoefac = ay - KkoefAC * ax\par
+\tab\tab\tab\tab if cx == bx:\par
+\tab\tab\tab\tab\tab if (dy != Kkoefab * dx + Bkoefab) and (dy != Kkoefac * dx + Bkoefac) and (dx != bx):\par
+\tab\tab\tab\tab\tab\tab figure = '\'d7\'e5\'f2\'fb\'f0\'b8\'f5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab\tab\tab elif (dy == Kkoefab * dx + Bkoefab) or (dy == Kkoefac * dx + Bkoefac) or (dx == bx):\par
+\tab\tab\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab\tab elif cx != bx:\par
+\tab\tab\tab\tab\tab Kkoefbc = (by - cy)/(bx - cx)\par
+\tab\tab\tab\tab\tab Bkoefbc = by - KkoefBC * bx\par
+\tab\tab\tab\tab\tab if (dy != Kkoefab * dx + Bkoefab) and (dy != Kkoefac * dx + Bkoefac) and (dy != Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab\tab\tab figure = '\'d7\'e5\'f2\'fb\'f0\'b8\'f5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab\tab\tab elif (dy == Kkoefab * dx + Bkoefab) or (dy == Kkoefac * dx + Bkoefac) or (dy == Kkoefbc * dx + Bkoefbc):\par
+\tab\tab\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab elif cy == Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab if dy != Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+elif A==B or A==C or A==D or B==C or B==D or C==D:      # \'c5\'f1\'eb\'e8 \'f1\'ee\'e2\'ef\'e0\'e4\'e0\'fe\'f2 2 \'f2\'ee\'f7\'ea\'e8\par
+\tab if A == B:                                          # 1 \'e8\'e7 6\par
+\tab\tab if ax == cx:\par
+\tab\tab\tab if dx != ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != cx:\par
+\tab\tab\tab Kkoefac = (ay - cy)/(ax - cx)\par
+\tab\tab\tab Bkoefac = ay - Kkoefac * ax\par
+\tab\tab\tab if dy != Kkoefac * dx + Bkoefac:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dy == Kkoefac * dx + Bkoefac:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif A == C:                                        # 2 \'e8\'e7 6\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if dx != ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != bx:\par
+\tab\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab\tab Bkoefab = ay - Kkoefab * ax\par
+\tab\tab\tab if dy != Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif A == D:                                        # 3 \'e8\'e7 6\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if cx == ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif cx != ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != bx:\par
+\tab\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab\tab Bkoefab = ay - Kkoefab * ax\par
+\tab\tab\tab if cy != Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif cy == Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif B == C:                                        # 4 \'e8\'e7 6\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if dx != ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != bx:\par
+\tab\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab\tab Bkoefab = ay - Kkoefab * ax\par
+\tab\tab\tab if dy != Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif B == D:                                        # 5 \'e8\'e7 6\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if cx == ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif cx != ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != bx:\par
+\tab\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab\tab Bkoefab = ay - Kkoefab * ax\par
+\tab\tab\tab if cy != Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif cy == Kkoefab * cx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab elif C == D:                                       # 6 \'e8\'e7 6\par
+\tab\tab if ax == bx:\par
+\tab\tab\tab if dx != ax:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dx == ax:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+\tab\tab elif ax != bx:\par
+\tab\tab\tab Kkoefab = (ay - by)/(ax - bx)\par
+\tab\tab\tab Bkoefab = ay - Kkoefab * ax\par
+\tab\tab\tab if dy != Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'d2\'f0\'e5\'f3\'e3\'ee\'eb\'fc\'ed\'e8\'ea'\par
+\tab\tab\tab elif dy == Kkoefab * dx + Bkoefab:\par
+\tab\tab\tab\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+elif (A == B and B == C and C != D) or (A == B and B == D and A != C) or (A == C and c == D and A != B) or (A != B and B == C and C == D):   # \'c5\'f1\'eb\'e8 3 \'f2\'ee\'f7\'ea\'e8 \'f1\'ee\'e2\'ef\'e0\'e4\'e0\'fe\'f2\par
+\tab figure == '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+elif (A == B and C == D and A != C) or (A == C and B == D and A != B) or (A == D and B == C and A != B):     # \'c5\'f1\'eb\'e8 2 \'ef\'e0\'f0\'fb \'f1\'ee\'e2\'ef\'e0\'e4\'e0\'fe\'f9\'e8\'f5 \'f2\'ee\'f7\'e5\'ea\par
+\tab figure = '\'ce\'f2\'f0\'e5\'e7\'ee\'ea'\par
+elif A == B and B == C and C == D:\par
+\tab figure = '\'d2\'ee\'f7\'ea\'e0'\f0\lang1033\par
+}
+ 
