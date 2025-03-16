@@ -1,0 +1,32 @@
+        -:    0:Source:../cpp/MagicTower.cpp
+        -:    0:Graph:MagicTower.gcno
+        -:    0:Data:MagicTower.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/MagicTower.hpp"
+        -:    2:
+        -:    3:#include "../hpp/Tower.hpp"
+        -:    4:#include "../hpp/BuildAttack.hpp"
+        -:    5:#include "../hpp/EffectAttack.hpp"
+        -:    6:
+        -:    7:#include "../hpp/PriceTable.hpp"
+        -:    8:
+        -:    9:
+       80:   10:MagicTower::MagicTower(int cost, int level, int radius, int damage, AttackStrategy strat, int attackspeed, EffectType effect) :
+       80:   11:        Tower(cost, level, radius, damage, strat, attackspeed), effect(effect) {}
+        -:   12:
+       60:   13:EffectType MagicTower::getEffect() const { return effect; }
+       20:   14:void MagicTower::setEffect(EffectType neweffect) { effect = neweffect; }
+        -:   15:
+        -:   16:// Tower methods
+       20:   17:BuildAttack* MagicTower::attack() const { return new BuildAttack(damage, new EffectAttack(effect, level)); }
+        -:   18:
+       40:   19:void MagicTower::upgrade()
+        -:   20:{
+       40:   21:        Tower::upgrade(); // ++level;
+       40:   22:        BuildStats stats = PriceTable::instance().getBuildStats(BuildType::MAGICTOWER, strat, effect, level);
+        -:   23:
+       40:   24:        cost = stats.cost;
+       40:   25:        radius = stats.radius;
+       40:   26:        damage = stats.damage;
+       40:   27:        attackSpeed = stats.attackspeed;
+       40:   28:}

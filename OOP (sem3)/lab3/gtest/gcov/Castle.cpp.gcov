@@ -1,0 +1,26 @@
+        -:    0:Source:../cpp/Castle.cpp
+        -:    0:Graph:Castle.gcno
+        -:    0:Data:Castle.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/Castle.hpp"
+        -:    2:
+        -:    3:
+       80:    4:Castle::Castle(const std::string& name, int maxhealth) :
+       80:    5:        name(name), maxhealth(maxhealth), currhealth(maxhealth), gold(0) {}
+        -:    6:
+       40:    7:Castle::Castle(const std::string& name, int maxhealth, int gold) :
+       40:    8:        name(name), maxhealth(maxhealth), currhealth(maxhealth), gold(gold) {}
+        -:    9:
+        -:   10:
+       40:   11:std::string Castle::getName() const { return name; }
+       40:   12:int Castle::getMaxHealth() const { return maxhealth; }
+      100:   13:int Castle::getCurrentHealth() const { return currhealth; }
+       80:   14:int Castle::getGold() const { return gold; }
+        -:   15:
+       20:   16:void Castle::addGold(int amount) { gold += amount; }
+       20:   17:void Castle::reduceGold(int amount) { gold -= amount; }
+        -:   18:
+        -:   19:// IDamagable
+       40:   20:int Castle::damageTaken(int damage) const { return damage > currhealth ? currhealth : damage; }
+      120:   21:void Castle::setHealth(int health) { currhealth = health > maxhealth ? maxhealth : (health > 0 ? health : 0); }
+       80:   22:bool Castle::isAlive() const { return currhealth > 0; }

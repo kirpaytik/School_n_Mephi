@@ -1,0 +1,113 @@
+        -:    0:Source:../cpp/Enemy.cpp
+        -:    0:Graph:Enemy.gcno
+        -:    0:Data:Enemy.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/Enemy.hpp"
+        -:    2:
+        -:    3:#include "../hpp/EffectAttack.hpp"
+        -:    4:
+        -:    5:#include <algorithm>
+        -:    6:
+        -:    7:
+      223:    8:Enemy::Enemy(int health, int speed, int gold, EnemyType type) :
+      223:    9:        maxhealth(health), currhealth(health), speed(speed), gold(gold), effects(), type(type) {}
+        -:   10:
+      587:   11:Enemy::~Enemy() { for(EffectAttack* effect : effects) delete effect; }
+        -:   12:
+      160:   13:int Enemy::getMaxHealth() const { return maxhealth; }
+       60:   14:void Enemy::setMaxHealth(int health) { if (health > 0) maxhealth = health; if (currhealth > maxhealth) currhealth = maxhealth; }
+        -:   15:
+      200:   16:int Enemy::getHealth() const { return currhealth; }
+      140:   17:void Enemy::setHealth(int health) { if (health < 0) health = 0; else if (health > maxhealth) health = maxhealth; currhealth = health; }
+        -:   18:
+       60:   19:int Enemy::getSpeed() const { return speed; }
+       40:   20:void Enemy::setSpeed(int newspeed) { if (newspeed < 1) newspeed = 1; speed = newspeed; }
+        -:   21:
+       60:   22:int Enemy::getGold() const { return gold; }
+       40:   23:void Enemy::setGold(int newgold) { if (newgold < 0) newgold = 0; gold = newgold; }
+        -:   24:
+      940:   25:std::vector<EffectAttack*> Enemy::getEffects() const { return effects; }
+        -:   26:
+       40:   27:EnemyType Enemy::getType() const { return type; }
+        -:   28:
+        -:   29:
+       80:   30:int Enemy::move() const
+        -:   31:{
+       80:   32:        int real_speed = speed;
+      80*:   33:        for (EffectAttack* effect : effects) {
+       60:   34:                if (effect->getType() == EffectType::SLOWNESS) {
+       60:   35:                        real_speed -= effect->getAppliedValue(speed);
+       60:   36:                        break;
+        -:   37:                }
+        -:   38:        }
+        -:   39:
+       80:   40:        return real_speed > 0 ? real_speed : 0;
+        -:   41:}
+        -:   42:
+        -:   43:
+       20:   44:int Enemy::damageTaken(int damage) const { return damage; }
+        2:   45:bool Enemy::isAlive() const { return currhealth > 0; }
+        -:   46:
+        -:   47:
+      541:   48:void Enemy::applyEffect(EffectAttack* neweffect)
+        -:   49:{
+      601:   50:        for (auto it = effects.begin(); it != effects.end(); ++it) {
+      400:   51:                EffectAttack* effect = *it;
+      400:   52:                if (effect->getType() == neweffect->getType()) {
+      340:   53:                        if (neweffect->getLevel() > effect->getLevel()) {
+      160:   54:                                delete effect;
+      160:   55:                                *it = neweffect;
+        -:   56:                        } else {
+      180:   57:                                int newduration = std::max(effect->getDuration(), neweffect->getDuration());
+      180:   58:                                effect->setDuration(newduration);
+      180:   59:                                delete neweffect;
+        -:   60:                        }
+        -:   61:
+      340:   62:                        return;
+        -:   63:                }
+        -:   64:        }
+        -:   65:
+      201:   66:        effects.push_back(neweffect);
+        -:   67:}
+        -:   68:
+        -:   69:
+       60:   70:void Enemy::processEffects()
+        -:   71:{
+      220:   72:        for (auto it = effects.begin(); it != effects.end(); ) {
+      160:   73:                EffectAttack* effect = *it;
+        -:   74:
+      160:   75:                if (effect->getType() == EffectType::POISON) {
+       40:   76:                        setHealth(currhealth - effect->getAppliedValue(currhealth));
+        -:   77:                }
+        -:   78:
+      160:   79:                effect->setDuration(effect->getDuration() - 1);
+      160:   80:                if (effect->isExpired()) {
+       60:   81:                        it = effects.erase(it);
+       60:   82:                        delete effect;
+        -:   83:                } else {
+      100:   84:                        ++it;
+        -:   85:                }
+        -:   86:        }
+       60:   87:}
+        -:   88:
+        -:   89:
+      180:   90:bool Enemy::hasEffect(EffectType type) const
+        -:   91:{
+      340:   92:        for (EffectAttack* effect : effects) {
+      280:   93:                if (effect->getType() == type)
+      120:   94:                        return true;
+        -:   95:        }
+        -:   96:
+       60:   97:        return false;
+        -:   98:}
+        -:   99:
+        -:  100:
+        2:  101:int Enemy::attack() const
+        -:  102:{
+       2*:  103:        for (EffectAttack* effect : effects) {
+        1:  104:                if (effect->getType() == EffectType::WEAKNESS)
+        1:  105:                        return currhealth - effect->getAppliedValue(currhealth);
+        -:  106:        }
+        -:  107:
+        1:  108:        return currhealth;
+        -:  109:}

@@ -1,0 +1,22 @@
+        -:    0:Source:../cpp/Cell.cpp
+        -:    0:Graph:Cell.gcno
+        -:    0:Data:Cell.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/Cell.hpp"
+        -:    2:
+        -:    3:
+       21:    4:Cell::Cell() : x(0), y(0) {}
+        -:    5:
+       20:    6:Cell::Cell(int x, int y) : x(x), y(y) {}
+        -:    7:
+        -:    8:
+       41:    9:int Cell::getX() const { return x; }
+        -:   10:
+        -:   11:
+       41:   12:int Cell::getY() const { return y; }
+        -:   13:
+        -:   14:
+       20:   15:void Cell::setX(int newx) { x = newx;}
+        -:   16:
+        -:   17:
+       20:   18:void Cell::setY(int newy) {y = newy; }

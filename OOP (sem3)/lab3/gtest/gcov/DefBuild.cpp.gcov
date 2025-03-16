@@ -1,0 +1,19 @@
+        -:    0:Source:../cpp/DefBuild.cpp
+        -:    0:Graph:DefBuild.gcno
+        -:    0:Data:DefBuild.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/DefBuild.hpp"
+        -:    2:
+        -:    3:#include "../hpp/Cell.hpp"
+        -:    4:#include "../hpp/BuildAttack.hpp"
+        -:    5:
+        -:    6:
+       80:    7:DefBuild::DefBuild(int cost, int level, int radius, int damage, AttackStrategy strat) :
+       80:    8:        cost(cost), level(level), radius(radius), damage(damage), strat(strat) {}
+        -:    9:
+       40:   10:int DefBuild::getCost() const { return cost; }
+       40:   11:int DefBuild::getLevel() const { return level; }
+       40:   12:int DefBuild::getRadius() const { return radius; }
+       40:   13:int DefBuild::getDamage() const { return damage; }
+       40:   14:AttackStrategy DefBuild::getStrategy() const { return strat; }
+       20:   15:void DefBuild::setStrategy(AttackStrategy newstrat) { strat = newstrat; }
