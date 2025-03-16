@@ -1,0 +1,12 @@
+Хороший плейлист для поверхностного ознакомления с общей концепцией и с базовыми командами
+https://youtu.be/-nhj5xuhQxw?si=bd7WHWX9irIPz7LZ
+
+Также смотри "Informatics\мифы и сказки\1 курс\АиСД\lab2\CMakeLists.txt" как пример, какие приколы можно делать
+
+А для того, чтобы запускать у себя, а не на сервере, где всё как-то уже настроено, нужно указать следующее:
+1) при cmake .. ещё написать -G "MinGW Makefiles", или ещё можно попробовать "Unix Makefiles"
+2) если он сам не найдёт комилятор, то нужно ещё в самом CMakeLists.txt написать две строчки (вроде перед командой project надо):
+set(CMAKE_MAKE_PROGRAM D:/gcc/bin/make.exe)
+set(CMAKE_C_COMPILER D:/gcc/bin/gcc.exe)
+Но почему-то даже если указать это, он всё равно может сказать, что эти переменные не указаны (not set). (может, не перед project надо просто?) Так что лучше просто написать полностью:
+cmake -DCMAKE_MAKE_PROGRAM="D:/gcc/bin/make.exe" -DCMAKE_C_COMPILER="D:/gcc/bin/gcc.exe" -G "MinGW Makefiles" ..
