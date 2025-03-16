@@ -1,0 +1,31 @@
+LANDSCAPE:
+width, height
+
+CASTLE:
+x y
+CASTLE:
+name health gold
+
+LAIRS
+LAIR: x y
+LAIR: name
+ENEMY: time enemyType
+ENEMY: time enemyType
+END_LAIR
+
+LAIR: x y
+LAIR: name
+ENEMIES: amount
+END_LAIRS
+
+
+ROADS
+ROAD: x y
+ROAD: x y
+END_ROADS
+
+FIELDS
+FIELD: x y
+FIELD: x y
+END_FIELDS
+END_LANDSCAPE
