@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void swap (int *x, int *y) {
+    int c = *x;
+    *x = *y;
+    *y = c;
+}
+
+int isComDiv(int x, int y, int z) {
+    if (y%x == 0)
+        if (z%x == 0)
+            return 1;
+    return 0;
+}
+
+int main()
+{
+    int a,b;
+    printf("Please enter an integer: ");
+    while(scanf("%d",&a) != 1)
+    {
+        printf("Please enter an integer: ");
+        while(getchar() != '\n');
+    }
+    printf("Please enter the second integer: ");
+    while(scanf("%d",&b) != 1)
+    {
+        printf("Please enter the second integer: ");
+        while(getchar() != '\n');
+    }
+    
+    if (a > b)
+        swap(&a,&b);
+    
+    printf("%d%s", 1, "\n");
+    int i=2;
+    while(i <= b/2) {
+        if (isComDiv(i,a,b))
+            printf("%d%s", i, "\n");
+        i += 1;
+    }
+    if (a == b)
+        printf("%d%s", b, "\n");
+    
+    return 0;
+}

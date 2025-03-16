@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <math.h>
+
+double mypow(double x, double e, int *c) {
+    int i=1;
+    double sum=1, y, p=1;
+    while (fabs(p) > e) {
+        y=x*(1-2*(i-1))*(-1)*(2*i-1)*(2*i)/((1-2*i)*(i*i)*4);
+        p *= y;
+        sum += p;
+        i++;
+    }
+    *c = i;
+    return sum;
+}
+
+int lenE(double e) {
+    int c=0;
+    printf("%lf %d %lf\n", e, (int)e, e-(int)e);
+    while ((e - (int)e > 0.001) || e < 0.99) {
+        e*=10;
+        c++;
+    }
+    return c;
+}
+
+int main()
+{
+    double x=-2, e;
+    int c;
+    while (x <= -1 || x >= 1) {
+        printf("%s\n","Введите x");
+        while (scanf("%lf",&x) == 0) {
+            printf("%s\n","Введите x");
+            scanf("%*[^\n]");
+        }
+    }
+    printf("%s\n","Введите e");
+    while (scanf("%lf",&e) == 0) {
+        printf("%s\n","Введите e");
+        scanf("%*[^\n]");
+    }
+    
+    double resmy = mypow(x,e,&c);
+    double resmath = pow(x+1,0.5);
+    
+    int n = lenE(e);
+    printf("%d\n",n);
+    printf("%s%.*lf\n", "sqrt(x+1) = ", n, resmy);
+    printf("%s%d\n", "Количество членов ряда: ", c);
+    printf("%s%.*lf\n", "Результат библиотеки math: ", n, resmath);
+    
+    return 0;
+}
