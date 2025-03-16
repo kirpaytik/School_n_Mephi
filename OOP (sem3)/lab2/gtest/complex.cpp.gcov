@@ -1,0 +1,577 @@
+        -:    0:Source:complex.cpp
+        -:    1:#include "complex.hpp"
+        -:    2:
+        -:    3:#include <iostream>
+        -:    4:#include <fstream>
+        -:    5:#include <algorithm>
+        -:    6:#include <vector>
+        -:    7:#include <compare>
+        -:    8:#include <sstream>
+        -:    9:
+        -:   10:#include "simple.hpp"
+        -:   11:
+        -:   12:
+        7:   13:TriVector::TriVector() noexcept: length(0), coord(nullptr) {}
+        -:   14:
+       19:   15:TriVector::TriVector(const int& len)
+        -:   16:{
+       19:   17:        if (len < 0)
+        1:   18:                throw std::invalid_argument("Length must be >0 !");
+        -:   19:
+      239:   20:        coord = new TriSignal[len];
+       18:   21:        length = len;
+       18:   22:}
+        -:   23:
+        2:   24:TriVector::TriVector(const int& len, const TriSignal& signal)
+        -:   25:{
+        2:   26:        if (len < 0)
+        1:   27:                throw std::invalid_argument("Length must be >0 !");
+        -:   28:
+        8:   29:        coord = new TriSignal[len];
+        8:   30:        for (int i = 0; i < len; ++i) {
+        7:   31:                coord[i] = signal;
+        -:   32:        }
+        1:   33:        length = len;
+        1:   34:}
+        -:   35:
+      523:   36:TriVector::TriVector(const std::string& arr)
+        -:   37:{
+     5997:   38:        coord = new TriSignal[arr.size()];
+      523:   39:        std::transform(arr.begin(), arr.end(), coord,
+     5474:   40:                [] (const char& c) -> TriSignal { return TriSignal(c); });
+      523:   41:        length = arr.size();
+      523:   42:}
+        -:   43:
+       52:   44:TriVector::TriVector(const TriSignal* arr, const int& len)
+        -:   45:{
+       52:   46:        if (len < 0)
+        1:   47:                throw std::invalid_argument("Length must be >0 !");
+       51:   48:        if (!arr)
+        1:   49:                throw std::invalid_argument("Null-pointer occured!");
+        -:   50:
+      622:   51:        coord = new TriSignal[len];
+       50:   52:        std::copy(arr, arr + len, coord);
+       50:   53:        length = len;
+       50:   54:}
+        -:   55:
+      103:   56:TriVector::TriVector(const TriVector& other)
+        -:   57:{
+     1185:   58:        coord = new TriSignal[other.length];
+      103:   59:        std::copy(other.coord, other.coord + other.length, coord);
+      103:   60:        length = other.length;
+      103:   61:}
+        -:   62:
+      108:   63:TriVector::TriVector(TriVector&& other) noexcept:
+      108:   64:        length(other.length), coord(other.coord)
+      108:   65:        { other.coord = nullptr; other.length = 0; }
+        -:   66:
+        -:   67:
+      810:   68:TriVector::~TriVector()
+        -:   69:{
+      810:   70:        delete[] coord;
+      810:   71:        coord = nullptr;
+      810:   72:        length = 0;
+      810:   73:}
+        -:   74:
+        -:   75:
+      101:   76:TriVector& TriVector::setVector(const std::string& arr)
+        -:   77:{
+     1140:   78:        TriSignal* temp = new TriSignal[arr.size()];
+      101:   79:        std::transform(arr.begin(), arr.end(), temp,
+     1039:   80:                [] (const char& c) -> TriSignal { return TriSignal(c); });
+      101:   81:        clear();
+      101:   82:        coord = temp;
+      101:   83:        length = arr.size();
+        -:   84:
+      101:   85:        return *this;
+        -:   86:}
+        -:   87:
+        -:   88:
+      102:   89:TriVector& TriVector::setVector(const TriSignal* arr, const int& len)
+        -:   90:{
+      102:   91:        if (len < 0)
+        1:   92:                throw std::invalid_argument("Length must be >0 !");
+      101:   93:        if (!arr)
+        1:   94:                throw std::invalid_argument("Null-pointer occured!");
+        -:   95:
+     1144:   96:        TriSignal* temp = new TriSignal[len];
+      100:   97:        std::copy(arr, arr + len, temp);
+      100:   98:        clear();
+      100:   99:        coord = temp;
+      100:  100:        length = len;
+        -:  101:
+      100:  102:        return *this;
+        -:  103:}
+        -:  104:
+        -:  105:
+       13:  106:TriVector& TriVector::setSignal(const TriSignal& signal, const int& index)
+        -:  107:{
+       13:  108:        if (index < 0 || index >= length)
+        2:  109:                throw std::out_of_range("Index is out of range");
+        -:  110:
+       11:  111:        coord[index] = signal;
+       11:  112:        return *this;
+        -:  113:}
+        -:  114:
+        -:  115:
+      729:  116:int TriVector::getLength() const noexcept
+        -:  117:{
+      729:  118:        return length;
+        -:  119:}
+        -:  120:
+        -:  121:
+      104:  122:TriSignal* TriVector::getVector() const noexcept
+        -:  123:{
+      104:  124:        return coord;
+        -:  125:}
+        -:  126:
+        -:  127:
+     6612:  128:TriSignal TriVector::getSignal(const int& index) const
+        -:  129:{
+     6612:  130:        if (index < 0 || index >= length)
+        2:  131:                throw std::out_of_range("Index is out of range");
+        -:  132:
+     6610:  133:        return coord[index];
+        -:  134:}
+        -:  135:
+        -:  136:
+        2:  137:void TriVector::print(std::ostream& out) const noexcept
+        -:  138:{
+       10:  139:        for (int i = 0; i < length; ++i) {
+        8:  140:                out << coord[i];
+        -:  141:        }
+        2:  142:        out << std::endl;
+        2:  143:}
+        -:  144:
+        -:  145:
+        2:  146:void TriVector::fprint(const std::string& filename) const
+        -:  147:{
+        2:  148:        std::ofstream fout(filename);
+        2:  149:        if (!fout.is_open()) {
+        1:  150:                throw std::ios_base::failure("Could not open file");
+        -:  151:        }
+        -:  152:
+        1:  153:        print(fout);
+        2:  154:}
+        -:  155:
+        -:  156:
+        2:  157:TriVector TriVector::operator | (const TriVector& other) const
+        -:  158:{
+        2:  159:        if (length != other.length) {
+        1:  160:                throw std::invalid_argument("Vectors must be the same length");
+        -:  161:        }
+        -:  162:
+        1:  163:        TriVector result(length);
+       10:  164:        for (int i = 0; i < length; ++i) {
+        9:  165:                result.coord[i] = coord[i] || other.coord[i];
+        -:  166:        }
+        -:  167:
+        1:  168:        return result;
+        -:  169:}
+        -:  170:
+        -:  171:
+        2:  172:TriVector TriVector::operator & (const TriVector& other) const
+        -:  173:{
+        2:  174:        if (length != other.length) {
+        1:  175:                throw std::invalid_argument("Vectors must be the same length");
+        -:  176:        }
+        -:  177:
+        1:  178:        TriVector result(length);
+       10:  179:        for (int i = 0; i < length; ++i) {
+        9:  180:                result.coord[i] = coord[i] && other.coord[i];
+        -:  181:        }
+        -:  182:
+        1:  183:        return result;
+        -:  184:}
+        -:  185:
+        -:  186:
+        1:  187:TriVector TriVector::operator ~ () const
+        -:  188:{
+        1:  189:        TriVector result(length);
+        -:  190:
+        4:  191:        for (int i = 0; i < length; ++i) {
+        3:  192:                result.coord[i] = !coord[i];
+        -:  193:        }
+        -:  194:
+        1:  195:        return result;
+        -:  196:}
+        -:  197:
+        -:  198:
+    #####:  199:std::strong_ordering TriVector::operator <=>(const TriVector& other) const noexcept
+        -:  200:{
+    #####:  201:        if (real_length() > other.real_length())
+    #####:  202:                return std::strong_ordering::greater;
+        -:  203:
+    #####:  204:        if (real_length() < other.real_length())
+    #####:  205:                return std::strong_ordering::less;
+        -:  206:
+    #####:  207:        int potential = 0;
+    #####:  208:        for (int j = length - 1, k = other.length - 1; j > -1 && k > -1; --j, --k) {
+    #####:  209:                char a = coord[j].state;
+    #####:  210:                char b = other.coord[k].state;
+    #####:  211:                if (a == 'X' || b == 'X') {
+    #####:  212:                        if (checkPotential(coord[j].state, other.coord[k].state, potential)) {
+    #####:  213:                                return std::strong_ordering::equal;
+        -:  214:                        }
+    #####:  215:                        continue;
+        -:  216:                }
+        -:  217:
+    #####:  218:                if (coord[j] > other.coord[k]) {
+    #####:  219:                        if (potential < 0) return std::strong_ordering::equal;
+    #####:  220:                        return std::strong_ordering::greater;
+        -:  221:                }
+        -:  222:
+    #####:  223:                if (coord[j] < other.coord[k]) {
+    #####:  224:                        if (potential > 0) return std::strong_ordering::equal;
+    #####:  225:                        return std::strong_ordering::less;
+        -:  226:                }
+        -:  227:        }
+        -:  228:
+    #####:  229:        return std::strong_ordering::equal;
+        -:  230:}
+        -:  231:
+        -:  232:
+       22:  233:bool TriVector::operator == (const TriVector& other) const noexcept
+        -:  234:{
+       22:  235:        if (length != other.length)
+        4:  236:                return false;
+        -:  237:
+       18:  238:        return std::equal(coord, coord + length, other.coord);
+        -:  239:}
+        -:  240:
+        -:  241:
+        6:  242:bool TriVector::operator != (const TriVector& other) const noexcept
+        -:  243:{
+        6:  244:        return !(*this == other);
+        -:  245:}
+        -:  246:
+        -:  247:
+    #####:  248:bool TriVector::checkPotential(const char& a, const char& b, int& potential) const noexcept
+        -:  249:{
+        -:  250:        // potential: X < 1 => less, 0 < X => less
+    #####:  251:        if ((a == 'X' && b == '1') || (a == '0' && b == 'X')) {
+    #####:  252:                if (potential > 0) return true;
+    #####:  253:                potential = -1;
+        -:  254:        // potential: X > 0 => greater, 1 > X => greater
+    #####:  255:        } else if ((a == 'X' && b == '0') || (a == '1' && b == 'X')) {
+    #####:  256:                if (potential < 0) return true;
+    #####:  257:                potential = 1;
+        -:  258:        }
+        -:  259:
+    #####:  260:        return false;
+        -:  261:}
+        -:  262:
+        -:  263:
+        6:  264:TriVector TriVector::operator + (const TriVector& other) const
+        -:  265:{
+        6:  266:        int maxlen = std::max(length, other.length);
+        6:  267:        TriVector result(maxlen);
+        -:  268:
+        6:  269:        TriSignal carry('0');
+        6:  270:        int j = length - 1;
+        6:  271:        int k = other.length - 1;
+        -:  272:
+       96:  273:        for (int i = maxlen - 1; i > -1; --i, --j, --k) {
+       90:  274:                TriSignal a(j > -1 ? coord[j] : TriSignal('0'));
+       90:  275:                TriSignal b(k > -1 ? other.coord[k] : TriSignal('0'));
+        -:  276:
+       90:  277:                result.coord[i] = a + b + carry;
+       90:  278:                calculateCarry(a, b, carry);
+        -:  279:        }
+        -:  280:
+        6:  281:        if (carry.state != '0') {
+    #####:  282:                result.insert(0, TriSignal(carry.state));
+        -:  283:        }
+        -:  284:
+       12:  285:        return result;
+    =====:  286:}
+        -:  287:// ОФИГЕТЬ АССОЦИАТИВНОСТЬ ПОТЕРЯЛАСЬ, пример:
+        -:  288:// (001X + 111X) + 1 = 100XX + 1 = 10XXX
+        -:  289:// 001X + (111X + 1) = 001X + XXXXX = XXXXX
+        -:  290:
+       90:  291:void TriVector::calculateCarry(const TriSignal& a, const TriSignal& b, TriSignal& carry) const noexcept
+        -:  292:{
+       90:  293:        if (( (a && b) || (a && carry) || (b && carry) ).state == '1') {
+    #####:  294:                carry.state = '1';
+       90:  295:        } else if (( (a || b) && (a || carry) && (b || carry) ).state == '0') {
+       70:  296:                carry.state = '0';
+       20:  297:        } else { carry.state = 'X'; } // 7+6=13 случаев из 27
+       90:  298:}
+        -:  299:
+        -:  300:
+        -:  301:// TriVector TriVector::operator - (TriVector other) const
+        -:  302:// {
+        -:  303://      if (coord < other.coord)
+        -:  304://              return TriVector("0");
+        -:  305:
+        -:  306://      if (length > other.length) {
+        -:  307://              int cond = length - other.length;
+        -:  308://              for (int i = 0; i < cond; ++i) {
+        -:  309://                      other.coord.insert(other.coord.begin(), TriSignal('0'));
+        -:  310://                      ++other.length;
+        -:  311://              }
+        -:  312://      }
+        -:  313:
+        -:  314://      return (*this) + ~other + TriVector(1, '1');
+        -:  315:// }
+        -:  316:// Нельзя использовать обычное вычитание через дополнительный код, пример:
+        -:  317:// 001X - 000X = я хочу, чтобы было 00XX,
+        -:  318:// потому что X-X=неопределено, и ещё неопределено, нужно ли занимать из 1
+        -:  319:// но через сложение с дополнительным кодом выйдет:
+        -:  320:// 000X ->(invert) 111X ->(+1) XXXXX;  001X + XXXXX = XXXXX
+        -:  321:
+        -:  322:
+        9:  323:TriVector TriVector::operator - (const TriVector& other) const
+        -:  324:{
+        9:  325:        if (length < other.length) {
+        2:  326:                return TriVector("0");
+        -:  327:        }
+        -:  328:
+        8:  329:        TriVector result(length);
+        8:  330:        int k = other.length - 1;
+      114:  331:        for (int j = length - 1; j > -1; --j, --k) {
+      106:  332:                if (k > -1)
+       32:  333:                        result.coord[j] = coord[j] - other.coord[k];
+        -:  334:                else
+       74:  335:                        result.coord[j] = coord[j];
+        -:  336:        }
+        -:  337:
+        8:  338:        return result;
+        8:  339:}
+        -:  340:
+        -:  341:
+        1:  342:TriVector& TriVector::operator ++()
+        -:  343:{
+        1:  344:        *this = *this + TriVector("1");
+        1:  345:        return *this;
+        -:  346:}
+        -:  347:
+        -:  348:
+        1:  349:TriVector& TriVector::operator --()
+        -:  350:{
+        1:  351:        *this = *this - TriVector("1");
+        1:  352:        return *this;
+        -:  353:}
+        -:  354:
+        -:  355:
+        1:  356:TriVector TriVector::operator ++(int)
+        -:  357:{
+        1:  358:        TriVector saved(*this);
+        1:  359:        *this = *this + TriVector("1");
+        -:  360:
+        1:  361:        return saved;
+    =====:  362:}
+        -:  363:
+        -:  364:
+        1:  365:TriVector TriVector::operator --(int)
+        -:  366:{
+        1:  367:        TriVector saved(*this);
+        1:  368:        *this = *this - TriVector("1");
+        -:  369:
+        1:  370:        return saved;
+    =====:  371:}
+        -:  372:
+        -:  373:
+        3:  374:TriVector& TriVector::operator = (const TriVector& other)
+        -:  375:{
+        3:  376:        if (this != &other) {
+       31:  377:                TriSignal* temp = new TriSignal[other.length];
+        2:  378:                std::copy(other.coord, other.coord + other.length, temp);
+        2:  379:                clear();
+        2:  380:                coord = temp;
+        2:  381:                length = other.length;
+        -:  382:        }
+        -:  383:
+        3:  384:        return *this;
+        -:  385:}
+        -:  386:
+        -:  387:
+        9:  388:TriVector& TriVector::operator = (TriVector&& other)
+        -:  389:{
+        9:  390:        if (this != &other) {
+        9:  391:                clear();
+        9:  392:                coord = other.coord;
+        9:  393:                length = other.length;
+        9:  394:                other.coord = nullptr;
+        9:  395:                other.length = 0;
+        -:  396:        }
+        -:  397:
+        9:  398:        return *this;
+        -:  399:}
+        -:  400:
+        -:  401:
+        1:  402:TriVector& TriVector::operator += (const TriVector& other)
+        -:  403:{
+        1:  404:        *this = *this + other;
+        1:  405:        return *this;
+        -:  406:}
+        -:  407:
+        -:  408:
+        1:  409:TriVector& TriVector::operator -= (const TriVector& other)
+        -:  410:{
+        1:  411:        *this = *this - other;
+        1:  412:        return *this;
+        -:  413:}
+        -:  414:
+        -:  415:
+       50:  416:TriSignal& TriVector::operator [] (const int& index)
+        -:  417:{
+       50:  418:        if (index < 0 || index >= length)
+        2:  419:                        throw std::out_of_range("Index is out of range");
+       48:  420:        return coord[index];
+        -:  421:}
+        -:  422:
+        -:  423:
+       11:  424:const TriSignal& TriVector::operator [] (const int& index) const
+        -:  425:{
+       11:  426:        if (index < 0 || index >= length)
+        2:  427:                        throw std::out_of_range("Index is out of range");
+        9:  428:        return coord[index];
+        -:  429:}
+        -:  430:
+        -:  431:
+        1:  432:TriVector::operator std::string() const
+        -:  433:{
+        1:  434:        return toString();
+        -:  435:}
+        -:  436:
+        -:  437:
+        1:  438:std::ostream& operator << (std::ostream& out, const TriVector& vector)
+        -:  439:{
+        1:  440:        int length = vector.getLength();
+        8:  441:        for (int i = 0; i < length; ++i) {
+        7:  442:                out << vector.coord[i];
+        -:  443:        }
+        -:  444:
+        1:  445:        return out;
+        -:  446:}
+        -:  447:
+        -:  448:
+        1:  449:std::istream& operator >> (std::istream& in, TriVector& vector)
+        -:  450:{
+        1:  451:        std::string input;
+        1:  452:        in >> input;
+        -:  453:
+        1:  454:        vector.setVector(input);
+        1:  455:        return in;
+        1:  456:}
+        -:  457:
+        -:  458:
+        2:  459:int TriVector::real_length() const noexcept
+        -:  460:{
+        2:  461:        int real = length;
+        5:  462:        for (int i = 0; i < length; ++i) {
+        5:  463:                if (coord[i].getState() == '0') {
+        3:  464:                        --real;
+        3:  465:                        continue;
+        -:  466:                }
+        2:  467:                break;
+        -:  468:        }
+        -:  469:
+        2:  470:        return real > 0 ? real : 1;
+        -:  471:}
+        -:  472:
+        -:  473:
+        2:  474:bool TriVector::isDefined() const noexcept
+        -:  475:{
+        2:  476:        return ! std::any_of(coord, coord + length,
+       49:  477:                [] (const TriSignal& signal) -> bool {
+       49:  478:                        return signal.state == 'X';
+        2:  479:        });
+        -:  480:}
+        -:  481:
+        -:  482:
+        2:  483:std::string TriVector::toString() const
+        -:  484:{
+        2:  485:        std::ostringstream oss;
+       25:  486:        for (int i = 0; i < length; ++i) {
+       23:  487:                oss << coord[i].chr();
+        -:  488:        }
+        4:  489:        return oss.str();
+        2:  490:}
+        -:  491:
+        -:  492:
+        1:  493:void TriVector::push_back(const TriSignal& signal)
+        -:  494:{
+       17:  495:        TriSignal* newCoord = new TriSignal[length + 1];
+        1:  496:        std::copy(coord, coord + length, newCoord);
+        1:  497:        delete[] coord;
+        1:  498:        coord = newCoord;
+        1:  499:        coord[length] = signal;
+        1:  500:        ++length;
+        1:  501:}
+        -:  502:
+        -:  503:
+        1:  504:void TriVector::pop_back()
+        -:  505:{
+        1:  506:        if (length > 0) {
+       18:  507:                TriSignal* newCoord = new TriSignal[length - 1];
+        1:  508:                std::copy(coord, coord + length - 1, newCoord);
+        1:  509:                delete[] coord;
+        1:  510:                coord = newCoord;
+        1:  511:                --length;
+        -:  512:        }
+        1:  513:}
+        -:  514:
+        -:  515:
+        3:  516:void TriVector::insert(const int& index, const TriSignal& signal)
+        -:  517:{
+        3:  518:        if (index < 0 || index >= length) {
+        2:  519:                throw std::out_of_range("Insert index is out of range (0-length)");
+        -:  520:        }
+       23:  521:        TriSignal* newCoord = new TriSignal[length + 1];
+        1:  522:        std::copy(coord, coord + index, newCoord);
+        1:  523:        newCoord[index] = signal;
+        1:  524:        std::copy(coord + index, coord + length, newCoord + index + 1);
+        1:  525:        delete[] coord;
+        1:  526:        coord = newCoord;
+        1:  527:        ++length;
+        1:  528:}
+        -:  529:
+        -:  530:
+        3:  531:void TriVector::erase(const int& index)
+        -:  532:{
+        3:  533:        if (index < 0 || index >= length) {
+        2:  534:                throw std::out_of_range("Erase index is out of range (0-length)");
+        -:  535:        }
+       25:  536:        TriSignal* newCoord = new TriSignal[length - 1];
+        1:  537:        std::copy(coord, coord + index, newCoord);
+        1:  538:        std::copy(coord + index + 1, coord + length, newCoord + index);
+        1:  539:        delete[] coord;
+        1:  540:        coord = newCoord;
+        1:  541:        --length;
+        1:  542:}
+        -:  543:
+        -:  544:
+      213:  545:void TriVector::clear()
+        -:  546:{
+      213:  547:        delete[] coord;
+      213:  548:        coord = nullptr;
+      213:  549:        length = 0;
+      213:  550:}
+        -:  551:
+        -:  552:
+        2:  553:int TriVector::size() const noexcept
+        -:  554:{
+        2:  555:        return length;
+        -:  556:}
+        -:  557:
+        -:  558:
+        2:  559:void TriVector::resize(const int& size)
+        -:  560:{
+        2:  561:        if (size < 0)
+        1:  562:                throw std::invalid_argument("Size must be >0 !");
+        -:  563:
+        5:  564:        TriSignal* newCoord = new TriSignal[size];
+        1:  565:        int minlen = std::min(length, size);
+        1:  566:        std::copy(coord, coord + minlen, newCoord);
+        1:  567:        delete[] coord;
+        -:  568:
+        1:  569:        if (size > minlen) {
+    #####:  570:                for (int i = minlen; i < size; ++i)
+    #####:  571:                        newCoord[i] = TriSignal('0');
+        -:  572:        }
+        -:  573:
+        1:  574:        coord = newCoord;
+        1:  575:        length = size;
+        1:  576:}

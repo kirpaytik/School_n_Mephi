@@ -1,0 +1,130 @@
+\doxysection{complex.\+hpp}
+\hypertarget{complex_8hpp_source}{}\label{complex_8hpp_source}\mbox{\hyperlink{complex_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ COMPLEX\_HPP}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ COMPLEX\_HPP}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simple_8hpp}{simple.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <compare>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tri_vector}{TriVector}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ length;\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_tri_signal}{TriSignal}}*\ coord;\ \ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkPotential(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ b,\ \textcolor{keywordtype}{int}\&\ potential)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ calculateCarry(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ b,\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ carry)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_tri_vector_a5007b16155e550f6c7996da26c362d4a}{TriVector}}()\ noexcept;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ explicit\ \mbox{\hyperlink{class_tri_vector}{TriVector}}(const\ \textcolor{keywordtype}{int}\&\ len);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00083\ \ \ \ \ explicit\ \mbox{\hyperlink{class_tri_vector}{TriVector}}(const\ \textcolor{keywordtype}{int}\&\ len,\ const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ signal);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00092\ \ \ \ \ explicit\ \mbox{\hyperlink{class_tri_vector}{TriVector}}(const\ std::\textcolor{keywordtype}{string}\&\ arr);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_tri_vector}{TriVector}}(const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}*\ arr,\ const\ \textcolor{keywordtype}{int}\&\ len);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ Copy\ and\ Move\ Constructors}}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_tri_vector}{TriVector}}(const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_tri_vector}{TriVector}}(\mbox{\hyperlink{class_tri_vector}{TriVector}}\&\&\ other)\ noexcept;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \string~\mbox{\hyperlink{class_tri_vector}{TriVector}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ Getters,\ Setters,\ and\ Print\ Functions}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00141\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ \mbox{\hyperlink{class_tri_vector_a6e19f56c9d21dc6b8fd56ecc6ae2d188}{setVector}}(const\ std::\textcolor{keywordtype}{string}\&\ arr);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00153\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ \mbox{\hyperlink{class_tri_vector_a6e19f56c9d21dc6b8fd56ecc6ae2d188}{setVector}}(const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}*\ arr,\ const\ \textcolor{keywordtype}{int}\&\ len);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00165\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ \mbox{\hyperlink{class_tri_vector_a34c21582864c766c6d795b19a6b6f2ee}{setSignal}}(const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ signal,\ const\ \textcolor{keywordtype}{int}\&\ index);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tri_vector_a26fdad5c28d1627ffb32ea92ca26b6d7}{getLength}}()\ const\ noexcept;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00179\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}*\ \mbox{\hyperlink{class_tri_vector_a7fcc74745ccff2ebeaf47dd0729095e6}{getVector}}()\ const\ noexcept;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00187\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\ \mbox{\hyperlink{class_tri_vector_a71356cebcf79feb20fa21562be5aa5a6}{getSignal}}(const\ \textcolor{keywordtype}{int}\&\ index)\ const;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_aa16e71c39a050d04109600949d8d75c5}{print}}(std::ostream\&\ out)\ const\ noexcept;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a23f57aabe0ebabb282d804d009e7b2c1}{fprint}}(const\ std::\textcolor{keywordtype}{string}\&\ filename)\ const;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{comment}{//\ Other\ Functions}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00212\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tri_vector_a49ca6c36888c33fca082d9ae0d673075}{isDefined}}()\ const\ noexcept;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00219\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tri_vector_a8532924979b9142d1c7e055b1fab8e08}{real\_length}}()\ const\ noexcept;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00228\ \ \ \ \ [[nodiscard]]\ std::\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_tri_vector_a8b82cf1565faf1b793f088747389ccc1}{toString}}()\ const;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a53fbdd561486b7e52696de453e7203d5}{push\_back}}(const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ signal);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a377aa0644e219c8eea482dc137452837}{pop\_back}}();}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_ac1a41e561b3c44ecbc33b80f1f24969c}{insert}}(const\ \textcolor{keywordtype}{int}\&\ index,\ const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ signal);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a4cd1b6ed12b63e87205f09f22bfa6340}{erase}}(const\ \textcolor{keywordtype}{int}\&\ index);}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a694ecfc5892ecfc89c2cbeb356fbd995}{clear}}();}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00282\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3}{size}}()\ const\ noexcept;}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tri_vector_a7a28c52448a5cd89d4278ae8a61afa5a}{resize}}(const\ \textcolor{keywordtype}{int}\&\ \mbox{\hyperlink{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3}{size}});}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00305\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ operator\ []\ (const\ \textcolor{keywordtype}{int}\&\ index);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00315\ \ \ \ \ [[nodiscard]]\ const\ \mbox{\hyperlink{class_tri_signal}{TriSignal}}\&\ operator\ []\ (const\ \textcolor{keywordtype}{int}\&\ index)\ const;}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00325\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ |\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const;}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00335\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ \&\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const;}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00344\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ \string~\ ()\ const;}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00356\ \ \ \ \ [[nodiscard]]\ std::strong\_ordering\ operator\ <=>(const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const\ noexcept;}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00365\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator\ ==\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const\ noexcept;}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00374\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator\ !=\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const\ noexcept;}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00385\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ +\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const;}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00396\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ -\/\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other)\ const;}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00405\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ ++();}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00414\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ -\/-\/();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00423\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ ++(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00432\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\ operator\ -\/-\/(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00442\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ =\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other);}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00452\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ =\ (\mbox{\hyperlink{class_tri_vector}{TriVector}}\&\&\ other);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00462\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ +=\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00472\ \ \ \ \ [[maybe\_unused]]\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ operator\ -\/=\ (const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ other);}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00481\ \ \ \ \ [[nodiscard]]\ operator\ std::\textcolor{keywordtype}{string}()\ const;}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00492\ \ \ \ \ friend\ std::ostream\&\ operator\ <<\ (std::ostream\&\ out,\ const\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ vector);}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00503\ \ \ \ \ friend\ std::istream\&\ operator\ >>\ (std::istream\&\ in,\ \mbox{\hyperlink{class_tri_vector}{TriVector}}\&\ vector);}
+\DoxyCodeLine{00504\ \};}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,932 @@
+\doxysection{Tri\+Vector Class Reference}
+\hypertarget{class_tri_vector}{}\label{class_tri_vector}\index{TriVector@{TriVector}}
+
+
+Class representing a vector of \doxylink{class_tri_signal}{Tri\+Signal} objects.  
+
+
+
+
+{\ttfamily \#include $<$complex.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tri_vector_a5007b16155e550f6c7996da26c362d4a}{Tri\+Vector}} () noexcept
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a4fa890f7f83fb072a5d23893191b967c}{Tri\+Vector}} (const int \&len)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_tri_vector}{Tri\+Vector} with specified length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a6ac7b4c9700cb0348a59a91a88d4229f}{Tri\+Vector}} (const int \&len, const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&signal)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a \doxylink{class_tri_signal}{Tri\+Signal}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a7578b9f74ade27abc76b2f327db9ae6c}{Tri\+Vector}} (const std\+::string \&arr)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a string representation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a15f05854e1a8a3e7f71037dd094d71e5}{Tri\+Vector}} (const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*}arr, const int \&len)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a pointer to \doxylink{class_tri_signal}{Tri\+Signal} array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_af916c040bce55eebaa50d3f900c9bb6f}{Tri\+Vector}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a4d41e8062569f3aa4e8fc21f8b952861}{Tri\+Vector}} (\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_a4c643d580a35e6f7367b355caa84ed79}{\texorpdfstring{$\sim$}{\string~}\+Tri\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a6e19f56c9d21dc6b8fd56ecc6ae2d188}{set\+Vector}} (const std\+::string \&arr)
+\begin{DoxyCompactList}\small\item\em Sets the vector using a string representation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a1cacff33ae7a7a59b9bab30d670e3560}{set\+Vector}} (const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*}arr, const int \&len)
+\begin{DoxyCompactList}\small\item\em Sets the vector using a pointer to \doxylink{class_tri_signal}{Tri\+Signal} array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a34c21582864c766c6d795b19a6b6f2ee}{set\+Signal}} (const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&signal, const int \&index)
+\begin{DoxyCompactList}\small\item\em Sets a specific \doxylink{class_tri_signal}{Tri\+Signal} in the vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_tri_vector_a26fdad5c28d1627ffb32ea92ca26b6d7}{get\+Length}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the length of the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tri_vector_a7fcc74745ccff2ebeaf47dd0729095e6}{get\+Vector}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the pointer to the vector of \doxylink{class_tri_signal}{Tri\+Signal} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \mbox{\hyperlink{class_tri_vector_a71356cebcf79feb20fa21562be5aa5a6}{get\+Signal}} (const int \&index) const
+\begin{DoxyCompactList}\small\item\em Gets a specific \doxylink{class_tri_signal}{Tri\+Signal} from the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_aa16e71c39a050d04109600949d8d75c5}{print}} (std\+::ostream \&out) const noexcept
+\begin{DoxyCompactList}\small\item\em Prints the vector to the specified output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a23f57aabe0ebabb282d804d009e7b2c1}{fprint}} (const std\+::string \&filename) const
+\begin{DoxyCompactList}\small\item\em Prints the vector to a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tri_vector_a49ca6c36888c33fca082d9ae0d673075}{is\+Defined}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the vector is defined (does not contain \textquotesingle{}X\textquotesingle{} states) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_tri_vector_a8532924979b9142d1c7e055b1fab8e08}{real\+\_\+length}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the real length of vector without leading zeros. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_tri_vector_a8b82cf1565faf1b793f088747389ccc1}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Converts the vector to a string representation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a53fbdd561486b7e52696de453e7203d5}{push\+\_\+back}} (const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&signal)
+\begin{DoxyCompactList}\small\item\em Adds a \doxylink{class_tri_signal}{Tri\+Signal} to the end of the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a377aa0644e219c8eea482dc137452837}{pop\+\_\+back}} ()
+\begin{DoxyCompactList}\small\item\em Removes the last \doxylink{class_tri_signal}{Tri\+Signal} from the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_ac1a41e561b3c44ecbc33b80f1f24969c}{insert}} (const int \&index, const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&signal)
+\begin{DoxyCompactList}\small\item\em Inserts a \doxylink{class_tri_signal}{Tri\+Signal} at a specific index in the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a4cd1b6ed12b63e87205f09f22bfa6340}{erase}} (const int \&index)
+\begin{DoxyCompactList}\small\item\em Erases a \doxylink{class_tri_signal}{Tri\+Signal} at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a694ecfc5892ecfc89c2cbeb356fbd995}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears all elements from the vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the current size of the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tri_vector_a7a28c52448a5cd89d4278ae8a61afa5a}{resize}} (const int \&\mbox{\hyperlink{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3}{size}})
+\begin{DoxyCompactList}\small\item\em Resizes the vector to a new size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \& \mbox{\hyperlink{class_tri_vector_aa0c9400e75695d7bfaac3a7a009c0a57}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index)
+\begin{DoxyCompactList}\small\item\em Accesses a \doxylink{class_tri_signal}{Tri\+Signal} at a specified index. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \& \mbox{\hyperlink{class_tri_vector_a19cb7907cab0873e83f6aef4b47eb320}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index) const
+\begin{DoxyCompactList}\small\item\em Accesses a \doxylink{class_tri_signal}{Tri\+Signal} at a specified index (const) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_a54768897da12f3d7fa06e193dad26923}{operator\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const
+\begin{DoxyCompactList}\small\item\em Performs the logical OR operation with another \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_a6eb8a7e774f399ccb003f5712353f6a9}{operator\&}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const
+\begin{DoxyCompactList}\small\item\em Performs the logical AND operation with another \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_a1d79899661e9e8a9d7238a3c4ccf0916}{operator\texorpdfstring{$\sim$}{\string~}}} () const
+\begin{DoxyCompactList}\small\item\em Performs the logical NOT operation on the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+std\+::strong\+\_\+ordering \mbox{\hyperlink{class_tri_vector_a2fae02af51a3709e83a24711db854825}{operator$<$=$>$}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Compares this \doxylink{class_tri_vector}{Tri\+Vector} with another for ordering. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tri_vector_aea9a342382be0b6e22262c900ec35348}{operator==}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tri_vector_a4036aeeadbe744bf44668026ed225574}{operator!=}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Inequality operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_af8ce9f6a9c798b22dedaa29ff1fb572f}{operator+}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const
+\begin{DoxyCompactList}\small\item\em Adds another \doxylink{class_tri_vector}{Tri\+Vector} to this one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_a426a87a5cf73c3666e8d249c74dbc2d9}{operator-\/}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other) const
+\begin{DoxyCompactList}\small\item\em Subtracts another \doxylink{class_tri_vector}{Tri\+Vector} from this one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a3a8782080a686f91a79dc501b6644a93}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em Pre-\/increment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a868d40f4cbe6d5993c7a03c2d8fddfb9}{operator-\/-\/}} ()
+\begin{DoxyCompactList}\small\item\em Pre-\/decrement operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_acdb1e7d6cc3a1c23c366f34f07ae183a}{operator++}} (int)
+\begin{DoxyCompactList}\small\item\em Post-\/increment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \mbox{\hyperlink{class_tri_vector_a58cb5688c6afe2bada472660c48b5404}{operator-\/-\/}} (int)
+\begin{DoxyCompactList}\small\item\em Post-\/decrement operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_ad73ca7765d8a595b0ef89258ef6c0c1f}{operator=}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_a6f8189dd4891947250b16a4435d998bf}{operator=}} (\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&\&other)
+\begin{DoxyCompactList}\small\item\em Move assignment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_abcd28d982b0d9df602de54ffd1aff2c9}{operator+=}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other)
+\begin{DoxyCompactList}\small\item\em Adds another \doxylink{class_tri_vector}{Tri\+Vector} to this one using the += operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& \mbox{\hyperlink{class_tri_vector_ac61702679a6ca86d9b7149f05a700655}{operator-\/=}} (const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&other)
+\begin{DoxyCompactList}\small\item\em Subtracts another \doxylink{class_tri_vector}{Tri\+Vector} from this one using the -\/= operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tri_vector_ae87bc444d91cb794707bfdd94f2d6979}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Converts the \doxylink{class_tri_vector}{Tri\+Vector} to a string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_tri_vector_aee51b047aef52102e25df5e247c0fe11}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&vector)
+\begin{DoxyCompactList}\small\item\em Overloaded output stream operator for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{class_tri_vector_a013df5c672f1f657f11531aff2f23bc3}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&vector)
+\begin{DoxyCompactList}\small\item\em Overloaded input stream operator for \doxylink{class_tri_vector}{Tri\+Vector}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a vector of \doxylink{class_tri_signal}{Tri\+Signal} objects. 
+
+The \doxylink{class_tri_vector}{Tri\+Vector} class provides functionality for creating, managing, and manipulating a vector of \doxylink{class_tri_signal}{Tri\+Signal} objects, including arithmetic operations, accessors, and mutators 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tri_vector_a5007b16155e550f6c7996da26c362d4a}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a5007b16155e550f6c7996da26c362d4a} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Default constructor for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+Initializes an empty \doxylink{class_tri_vector}{Tri\+Vector} with no elements Length is set to 0 and coord is set to nullptr \Hypertarget{class_tri_vector_a4fa890f7f83fb072a5d23893191b967c}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4fa890f7f83fb072a5d23893191b967c} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{const int \&}]{len}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{class_tri_vector}{Tri\+Vector} with specified length. 
+
+Allocates a \doxylink{class_tri_vector}{Tri\+Vector} of a given length, initializing all elements to a default state
+
+
+\begin{DoxyParams}{Parameters}
+{\em len} & Length of the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a6ac7b4c9700cb0348a59a91a88d4229f}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a6ac7b4c9700cb0348a59a91a88d4229f} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{const int \&}]{len}{, }\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&}]{signal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a \doxylink{class_tri_signal}{Tri\+Signal}. 
+
+Allocates a \doxylink{class_tri_vector}{Tri\+Vector} of a specified length, initializing all elements to the given \doxylink{class_tri_signal}{Tri\+Signal}
+
+
+\begin{DoxyParams}{Parameters}
+{\em len} & Length of the vector \\
+\hline
+{\em signal} & \doxylink{class_tri_signal}{Tri\+Signal} object to initialize the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a7578b9f74ade27abc76b2f327db9ae6c}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a7578b9f74ade27abc76b2f327db9ae6c} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a string representation. 
+
+Initializes the \doxylink{class_tri_vector}{Tri\+Vector} based on a string input that specifies the elements
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & String representation of the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a15f05854e1a8a3e7f71037dd094d71e5}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a15f05854e1a8a3e7f71037dd094d71e5} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const int \&}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_tri_vector}{Tri\+Vector} initialized with a pointer to \doxylink{class_tri_signal}{Tri\+Signal} array. 
+
+Initializes the \doxylink{class_tri_vector}{Tri\+Vector} copying an existing array of \doxylink{class_tri_signal}{Tri\+Signal} objects
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Pointer to an array of \doxylink{class_tri_signal}{Tri\+Signal} objects \\
+\hline
+{\em len} & Length of the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_af916c040bce55eebaa50d3f900c9bb6f}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_af916c040bce55eebaa50d3f900c9bb6f} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+Creates a new \doxylink{class_tri_vector}{Tri\+Vector} as a copy of an existing \doxylink{class_tri_vector}{Tri\+Vector}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} object to copy \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a4d41e8062569f3aa4e8fc21f8b952861}\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\index{TriVector@{TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{TriVector()}{TriVector()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4d41e8062569f3aa4e8fc21f8b952861} 
+Tri\+Vector\+::\+Tri\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move constructor for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+Transfers ownership of resources from another \doxylink{class_tri_vector}{Tri\+Vector} to this one
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} object to move \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a4c643d580a35e6f7367b355caa84ed79}\index{TriVector@{TriVector}!````~TriVector@{\texorpdfstring{$\sim$}{\string~}TriVector}}
+\index{````~TriVector@{\texorpdfstring{$\sim$}{\string~}TriVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TriVector()}{\string~TriVector()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4c643d580a35e6f7367b355caa84ed79} 
+Tri\+Vector\+::\texorpdfstring{$\sim$}{\string~}\+Tri\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+Cleans up resources used by the \doxylink{class_tri_vector}{Tri\+Vector} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tri_vector_a694ecfc5892ecfc89c2cbeb356fbd995}\index{TriVector@{TriVector}!clear@{clear}}
+\index{clear@{clear}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a694ecfc5892ecfc89c2cbeb356fbd995} 
+void Tri\+Vector\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all elements from the vector. 
+
+This method removes all elements from the vector, leaving it empty \Hypertarget{class_tri_vector_a4cd1b6ed12b63e87205f09f22bfa6340}\index{TriVector@{TriVector}!erase@{erase}}
+\index{erase@{erase}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4cd1b6ed12b63e87205f09f22bfa6340} 
+void Tri\+Vector\+::erase (\begin{DoxyParamCaption}\item[{const int \&}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Erases a \doxylink{class_tri_signal}{Tri\+Signal} at a specific index. 
+
+This method removes the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index, shifting subsequent elements and decreases the length
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \doxylink{class_tri_signal}{Tri\+Signal} to erase \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a23f57aabe0ebabb282d804d009e7b2c1}\index{TriVector@{TriVector}!fprint@{fprint}}
+\index{fprint@{fprint}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{fprint()}{fprint()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a23f57aabe0ebabb282d804d009e7b2c1} 
+void Tri\+Vector\+::fprint (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption}) const}
+
+
+
+Prints the vector to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to print to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a26fdad5c28d1627ffb32ea92ca26b6d7}\index{TriVector@{TriVector}!getLength@{getLength}}
+\index{getLength@{getLength}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a26fdad5c28d1627ffb32ea92ca26b6d7} 
+int Tri\+Vector\+::get\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the length of the vector. 
+
+\begin{DoxyReturn}{Returns}
+Length of the vector 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a71356cebcf79feb20fa21562be5aa5a6}\index{TriVector@{TriVector}!getSignal@{getSignal}}
+\index{getSignal@{getSignal}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{getSignal()}{getSignal()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a71356cebcf79feb20fa21562be5aa5a6} 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} Tri\+Vector\+::get\+Signal (\begin{DoxyParamCaption}\item[{const int \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets a specific \doxylink{class_tri_signal}{Tri\+Signal} from the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \doxylink{class_tri_signal}{Tri\+Signal} to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{class_tri_signal}{Tri\+Signal} at the specified index 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a7fcc74745ccff2ebeaf47dd0729095e6}\index{TriVector@{TriVector}!getVector@{getVector}}
+\index{getVector@{getVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{getVector()}{getVector()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a7fcc74745ccff2ebeaf47dd0729095e6} 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*} Tri\+Vector\+::get\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the pointer to the vector of \doxylink{class_tri_signal}{Tri\+Signal} objects. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the array of \doxylink{class_tri_signal}{Tri\+Signal} objects 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_ac1a41e561b3c44ecbc33b80f1f24969c}\index{TriVector@{TriVector}!insert@{insert}}
+\index{insert@{insert}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{class_tri_vector_ac1a41e561b3c44ecbc33b80f1f24969c} 
+void Tri\+Vector\+::insert (\begin{DoxyParamCaption}\item[{const int \&}]{index}{, }\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&}]{signal}{}\end{DoxyParamCaption})}
+
+
+
+Inserts a \doxylink{class_tri_signal}{Tri\+Signal} at a specific index in the vector. 
+
+This method inserts the specified \doxylink{class_tri_signal}{Tri\+Signal} at the given index, shifting subsequent elements and increases the length
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index at which to insert the signal \\
+\hline
+{\em signal} & \doxylink{class_tri_signal}{Tri\+Signal} object to insert \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a49ca6c36888c33fca082d9ae0d673075}\index{TriVector@{TriVector}!isDefined@{isDefined}}
+\index{isDefined@{isDefined}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{isDefined()}{isDefined()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a49ca6c36888c33fca082d9ae0d673075} 
+bool Tri\+Vector\+::is\+Defined (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the vector is defined (does not contain \textquotesingle{}X\textquotesingle{} states) 
+
+This method returns true if the vector doesnt contain \textquotesingle{}X\textquotesingle{} signals, and false if contains at least one \textquotesingle{}X\textquotesingle{}
+
+\begin{DoxyReturn}{Returns}
+true if the vector is defined, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_ae87bc444d91cb794707bfdd94f2d6979}\index{TriVector@{TriVector}!operator std::string@{operator std::string}}
+\index{operator std::string@{operator std::string}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}
+{\footnotesize\ttfamily \label{class_tri_vector_ae87bc444d91cb794707bfdd94f2d6979} 
+Tri\+Vector\+::operator std\+::string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Converts the \doxylink{class_tri_vector}{Tri\+Vector} to a string representation. 
+
+This conversion operator allows the \doxylink{class_tri_vector}{Tri\+Vector} to be used as a string
+
+\begin{DoxyReturn}{Returns}
+String representation of the \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a4036aeeadbe744bf44668026ed225574}\index{TriVector@{TriVector}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4036aeeadbe744bf44668026ed225574} 
+bool Tri\+Vector\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Inequality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the inequality of two vectors 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a6eb8a7e774f399ccb003f5712353f6a9}\index{TriVector@{TriVector}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a6eb8a7e774f399ccb003f5712353f6a9} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Performs the logical AND operation with another \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator combines the current \doxylink{class_tri_vector}{Tri\+Vector} with another using the logical AND operation
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{class_tri_vector}{Tri\+Vector} to combine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_tri_vector}{Tri\+Vector} resulting from the AND operation 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_af8ce9f6a9c798b22dedaa29ff1fb572f}\index{TriVector@{TriVector}!operator+@{operator+}}
+\index{operator+@{operator+}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{class_tri_vector_af8ce9f6a9c798b22dedaa29ff1fb572f} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Adds another \doxylink{class_tri_vector}{Tri\+Vector} to this one. 
+
+This operator adds the specified \doxylink{class_tri_vector}{Tri\+Vector} to the current one using binary addition logic, producing a new \doxylink{class_tri_vector}{Tri\+Vector}. Addition is not associative
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{class_tri_vector}{Tri\+Vector} to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_tri_vector}{Tri\+Vector} resulting from the addition 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a3a8782080a686f91a79dc501b6644a93}\index{TriVector@{TriVector}!operator++@{operator++}}
+\index{operator++@{operator++}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a3a8782080a686f91a79dc501b6644a93} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator++ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pre-\/increment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator increments the current \doxylink{class_tri_vector}{Tri\+Vector} and returns a reference to it
+
+\begin{DoxyReturn}{Returns}
+Reference to the incremented \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_acdb1e7d6cc3a1c23c366f34f07ae183a}\index{TriVector@{TriVector}!operator++@{operator++}}
+\index{operator++@{operator++}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_acdb1e7d6cc3a1c23c366f34f07ae183a} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Post-\/increment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator increments the current \doxylink{class_tri_vector}{Tri\+Vector} and returns a copy of the original one
+
+\begin{DoxyReturn}{Returns}
+A copy of the \doxylink{class_tri_vector}{Tri\+Vector} before increment 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_abcd28d982b0d9df602de54ffd1aff2c9}\index{TriVector@{TriVector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{class_tri_vector_abcd28d982b0d9df602de54ffd1aff2c9} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Adds another \doxylink{class_tri_vector}{Tri\+Vector} to this one using the += operator. 
+
+This operator adds the specified \doxylink{class_tri_vector}{Tri\+Vector} to the current one and updates it
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this updated \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a426a87a5cf73c3666e8d249c74dbc2d9}\index{TriVector@{TriVector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a426a87a5cf73c3666e8d249c74dbc2d9} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Subtracts another \doxylink{class_tri_vector}{Tri\+Vector} from this one. 
+
+This operator subtracts the specified \doxylink{class_tri_vector}{Tri\+Vector} from the current one elementwise, producing a new \doxylink{class_tri_vector}{Tri\+Vector}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{class_tri_vector}{Tri\+Vector} to subtract \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_tri_vector}{Tri\+Vector} resulting from the subtraction 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a868d40f4cbe6d5993c7a03c2d8fddfb9}\index{TriVector@{TriVector}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a868d40f4cbe6d5993c7a03c2d8fddfb9} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator-\/-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pre-\/decrement operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator decrements the current \doxylink{class_tri_vector}{Tri\+Vector} and returns a reference to it
+
+\begin{DoxyReturn}{Returns}
+Reference to the decremented \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a58cb5688c6afe2bada472660c48b5404}\index{TriVector@{TriVector}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a58cb5688c6afe2bada472660c48b5404} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Post-\/decrement operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator decrements the current \doxylink{class_tri_vector}{Tri\+Vector} and returns a copy of the original one
+
+\begin{DoxyReturn}{Returns}
+A copy of the \doxylink{class_tri_vector}{Tri\+Vector} before decrement 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_ac61702679a6ca86d9b7149f05a700655}\index{TriVector@{TriVector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{class_tri_vector_ac61702679a6ca86d9b7149f05a700655} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Subtracts another \doxylink{class_tri_vector}{Tri\+Vector} from this one using the -\/= operator. 
+
+This operator subtracts the specified \doxylink{class_tri_vector}{Tri\+Vector} from the current one and updates it
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} to subtract \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this updated \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a2fae02af51a3709e83a24711db854825}\index{TriVector@{TriVector}!operator$<$=$>$@{operator$<$=$>$}}
+\index{operator$<$=$>$@{operator$<$=$>$}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator$<$=$>$()}{operator<=>()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a2fae02af51a3709e83a24711db854825} 
+std\+::strong\+\_\+ordering Tri\+Vector\+::operator$<$=$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Compares this \doxylink{class_tri_vector}{Tri\+Vector} with another for ordering. 
+
+This operator provides a strong ordering comparison between two Tri\+Vectors If its impossible to arrange two Tri\+Vectors in order (due to undefined states \textquotesingle{}X\textquotesingle{}) then they are considered equal
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{class_tri_vector}{Tri\+Vector} to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Strong ordering result 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_ad73ca7765d8a595b0ef89258ef6c0c1f}\index{TriVector@{TriVector}!operator=@{operator=}}
+\index{operator=@{operator=}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_ad73ca7765d8a595b0ef89258ef6c0c1f} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator assigns the contents of another \doxylink{class_tri_vector}{Tri\+Vector} to this one
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a6f8189dd4891947250b16a4435d998bf}\index{TriVector@{TriVector}!operator=@{operator=}}
+\index{operator=@{operator=}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a6f8189dd4891947250b16a4435d998bf} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&\&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Move assignment operator for the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator transfers ownership of resources from another \doxylink{class_tri_vector}{Tri\+Vector} to this one
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_tri_vector}{Tri\+Vector} to move from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_aea9a342382be0b6e22262c900ec35348}\index{TriVector@{TriVector}!operator==@{operator==}}
+\index{operator==@{operator==}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_tri_vector_aea9a342382be0b6e22262c900ec35348} 
+bool Tri\+Vector\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other vector to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the equality of two vectors 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_aa0c9400e75695d7bfaac3a7a009c0a57}\index{TriVector@{TriVector}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_aa0c9400e75695d7bfaac3a7a009c0a57} 
+\mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \& Tri\+Vector\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Accesses a \doxylink{class_tri_signal}{Tri\+Signal} at a specified index. 
+
+This operator allows access to the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \doxylink{class_tri_signal}{Tri\+Signal} to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a19cb7907cab0873e83f6aef4b47eb320}\index{TriVector@{TriVector}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a19cb7907cab0873e83f6aef4b47eb320} 
+const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \& Tri\+Vector\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Accesses a \doxylink{class_tri_signal}{Tri\+Signal} at a specified index (const) 
+
+This operator allows read-\/only access to the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \doxylink{class_tri_signal}{Tri\+Signal} to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const reference to the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a54768897da12f3d7fa06e193dad26923}\index{TriVector@{TriVector}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a54768897da12f3d7fa06e193dad26923} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Performs the logical OR operation with another \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator combines the current \doxylink{class_tri_vector}{Tri\+Vector} with another using the logical OR operation
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{class_tri_vector}{Tri\+Vector} to combine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_tri_vector}{Tri\+Vector} resulting from the OR operation 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a1d79899661e9e8a9d7238a3c4ccf0916}\index{TriVector@{TriVector}!operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}}
+\index{operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\sim$}{\string~}()}{operator\string~()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a1d79899661e9e8a9d7238a3c4ccf0916} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} Tri\+Vector\+::operator\texorpdfstring{$\sim$}{\string~} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Performs the logical NOT operation on the \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This operator negates the current \doxylink{class_tri_vector}{Tri\+Vector}, producing a new \doxylink{class_tri_vector}{Tri\+Vector}
+
+\begin{DoxyReturn}{Returns}
+A new \doxylink{class_tri_vector}{Tri\+Vector} resulting from the NOT operation 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a377aa0644e219c8eea482dc137452837}\index{TriVector@{TriVector}!pop\_back@{pop\_back}}
+\index{pop\_back@{pop\_back}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{pop\_back()}{pop\_back()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a377aa0644e219c8eea482dc137452837} 
+void Tri\+Vector\+::pop\+\_\+back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes the last \doxylink{class_tri_signal}{Tri\+Signal} from the vector. 
+
+This method removes the last element from the vector, reducing its size by one \Hypertarget{class_tri_vector_aa16e71c39a050d04109600949d8d75c5}\index{TriVector@{TriVector}!print@{print}}
+\index{print@{print}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_tri_vector_aa16e71c39a050d04109600949d8d75c5} 
+void Tri\+Vector\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Prints the vector to the specified output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Output stream to print to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a53fbdd561486b7e52696de453e7203d5}\index{TriVector@{TriVector}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a53fbdd561486b7e52696de453e7203d5} 
+void Tri\+Vector\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&}]{signal}{}\end{DoxyParamCaption})}
+
+
+
+Adds a \doxylink{class_tri_signal}{Tri\+Signal} to the end of the vector. 
+
+This method appends the specified \doxylink{class_tri_signal}{Tri\+Signal} to the end of the vector and increases the length
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & \doxylink{class_tri_signal}{Tri\+Signal} object to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a8532924979b9142d1c7e055b1fab8e08}\index{TriVector@{TriVector}!real\_length@{real\_length}}
+\index{real\_length@{real\_length}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{real\_length()}{real\_length()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a8532924979b9142d1c7e055b1fab8e08} 
+int Tri\+Vector\+::real\+\_\+length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the real length of vector without leading zeros. 
+
+\begin{DoxyReturn}{Returns}
+length of vector without zeros at its beginning 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a7a28c52448a5cd89d4278ae8a61afa5a}\index{TriVector@{TriVector}!resize@{resize}}
+\index{resize@{resize}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a7a28c52448a5cd89d4278ae8a61afa5a} 
+void Tri\+Vector\+::resize (\begin{DoxyParamCaption}\item[{const int \&}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Resizes the vector to a new size. 
+
+This method changes the size of the vector to the specified size. If the new size is larger, new elements are initialized to a default state. If smaller, elements are removed Also updates the length to the new size
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & New size of the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tri_vector_a34c21582864c766c6d795b19a6b6f2ee}\index{TriVector@{TriVector}!setSignal@{setSignal}}
+\index{setSignal@{setSignal}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{setSignal()}{setSignal()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a34c21582864c766c6d795b19a6b6f2ee} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::set\+Signal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \&}]{signal}{, }\item[{const int \&}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Sets a specific \doxylink{class_tri_signal}{Tri\+Signal} in the vector. 
+
+Updates the \doxylink{class_tri_signal}{Tri\+Signal} at the specified index with the provided signal
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & \doxylink{class_tri_signal}{Tri\+Signal} object to set \\
+\hline
+{\em index} & Index where the signal should be set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a6e19f56c9d21dc6b8fd56ecc6ae2d188}\index{TriVector@{TriVector}!setVector@{setVector}}
+\index{setVector@{setVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{setVector()}{setVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a6e19f56c9d21dc6b8fd56ecc6ae2d188} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::set\+Vector (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arr}{}\end{DoxyParamCaption})}
+
+
+
+Sets the vector using a string representation. 
+
+Replaces the current contents of the vector with elements parsed from a string
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & String representation of the vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a1cacff33ae7a7a59b9bab30d670e3560}\index{TriVector@{TriVector}!setVector@{setVector}}
+\index{setVector@{setVector}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{setVector()}{setVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_tri_vector_a1cacff33ae7a7a59b9bab30d670e3560} 
+\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \& Tri\+Vector\+::set\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tri_signal}{Tri\+Signal}} \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{const int \&}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Sets the vector using a pointer to \doxylink{class_tri_signal}{Tri\+Signal} array. 
+
+Replaces the current contents of the vector copying elements from the specified array
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & Pointer to an array of \doxylink{class_tri_signal}{Tri\+Signal} objects \\
+\hline
+{\em len} & Length of the vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{class_tri_vector}{Tri\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3}\index{TriVector@{TriVector}!size@{size}}
+\index{size@{size}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a4e3c5a7b292fecc9b53577c83c2ab6d3} 
+int Tri\+Vector\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the current size of the vector. 
+
+This method returns the number of elements currently stored in the vector
+
+\begin{DoxyReturn}{Returns}
+Number of elements in the vector 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a8b82cf1565faf1b793f088747389ccc1}\index{TriVector@{TriVector}!toString@{toString}}
+\index{toString@{toString}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_tri_vector_a8b82cf1565faf1b793f088747389ccc1} 
+std\+::string Tri\+Vector\+::to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Converts the vector to a string representation. 
+
+This method generates a string that represents the contents of the vector
+
+\begin{DoxyReturn}{Returns}
+String representation of the vector 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_tri_vector_aee51b047aef52102e25df5e247c0fe11}\index{TriVector@{TriVector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{class_tri_vector_aee51b047aef52102e25df5e247c0fe11} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{const \mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloaded output stream operator for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This function allows the \doxylink{class_tri_vector}{Tri\+Vector} to be printed to an output stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Output stream to print to \\
+\hline
+{\em vector} & The \doxylink{class_tri_vector}{Tri\+Vector} to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the output stream after printing 
+\end{DoxyReturn}
+\Hypertarget{class_tri_vector_a013df5c672f1f657f11531aff2f23bc3}\index{TriVector@{TriVector}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!TriVector@{TriVector}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \label{class_tri_vector_a013df5c672f1f657f11531aff2f23bc3} 
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in}{, }\item[{\mbox{\hyperlink{class_tri_vector}{Tri\+Vector}} \&}]{vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloaded input stream operator for \doxylink{class_tri_vector}{Tri\+Vector}. 
+
+This function allows the \doxylink{class_tri_vector}{Tri\+Vector} to be read from an input stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Input stream to read from \\
+\hline
+{\em vector} & The \doxylink{class_tri_vector}{Tri\+Vector} to populate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the input stream after inputting 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{complex_8hpp}{complex.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,258 @@
+        -:    0:Source:simple.cpp
+        -:    0:Graph:simple.gcno
+        -:    0:Data:simple.gcda
+        -:    0:Runs:1
+        -:    1:#include "simple.hpp"
+        -:    2:
+        -:    3:#include <iostream>
+        -:    4:#include <fstream>
+        -:    5:#include <string>
+        -:    6:
+        -:    7:
+       73:    8:TriSignal::TriSignal() noexcept: state('0') {}
+        -:    9:
+       55:   10:TriSignal::TriSignal(const char& state)
+        -:   11:{
+       55:   12:        if (state == '0' || state == '1' || state == 'X') {
+       54:   13:                this->state = state;
+        -:   14:        } else {
+        1:   15:                std::cerr << "Invalid state has been replaced with '0'. Use '0', '1', or 'X'" << std::endl;
+        1:   16:                this->state = '0';
+        -:   17:        }
+       55:   18:}
+        -:   19:
+        -:   20:
+       99:   21:void TriSignal::setState(const char& state)
+        -:   22:{
+       99:   23:        if (state == '0' || state == '1' || state == 'X') {
+       98:   24:                this->state = state;
+        -:   25:        } else {
+        1:   26:                throw std::invalid_argument("Invalid state. Use '0', '1', or 'X'");
+        -:   27:        }
+       98:   28:}
+        -:   29:
+      107:   30:char TriSignal::getState() const noexcept {return state;}
+        -:   31:
+        -:   32:
+        2:   33:void TriSignal::print(std::ostream& out) const noexcept
+        -:   34:{
+        2:   35:        out << state << std::endl;
+        2:   36:}
+        -:   37:
+        2:   38:void TriSignal::fprint(const std::string& filename) const
+        -:   39:{
+        2:   40:        std::ofstream fout(filename);
+        2:   41:        if (!fout.is_open()) {
+        1:   42:                throw std::ios_base::failure("Could not open file");
+        -:   43:        }
+        -:   44:
+        1:   45:        print(fout);
+        2:   46:}
+        -:   47:
+        -:   48:
+        9:   49:TriSignal TriSignal::operator || (const TriSignal& other) const noexcept
+        -:   50:{
+        9:   51:        if (state == '1' || other.state == '1')
+        5:   52:                return TriSignal('1');
+        -:   53:
+        4:   54:        if (state == 'X' || other.state == 'X')
+        3:   55:                return TriSignal('X');
+        -:   56:
+        1:   57:        return TriSignal('0');
+        -:   58:}
+        -:   59:
+        -:   60:
+        9:   61:TriSignal TriSignal::operator && (const TriSignal& other) const noexcept
+        -:   62:{
+        9:   63:        if (state == '0' || other.state == '0') return TriSignal('0');
+        4:   64:        if (state == 'X' || other.state == 'X') return TriSignal('X');
+        1:   65:        return TriSignal('1');
+        -:   66:}
+        -:   67:
+        -:   68:
+        9:   69:TriSignal TriSignal::operator ^ (const TriSignal& other) const noexcept
+        -:   70:{
+        9:   71:        if (state == '0') return TriSignal(other.state);
+        6:   72:        if (other.state == '0') return TriSignal(state);
+        4:   73:        if (state == other.state) return TriSignal('0');
+        2:   74:        return TriSignal('X');
+        -:   75:}
+        -:   76:
+        -:   77:
+        3:   78:TriSignal TriSignal::operator ! () const noexcept
+        -:   79:{
+        3:   80:        if (state == 'X')
+        1:   81:                return TriSignal('X');
+        -:   82:
+        2:   83:        return TriSignal(char(!bool(state - '0')) + '0');
+        -:   84:}
+        -:   85:
+        -:   86:
+        9:   87:bool TriSignal::operator == (const TriSignal& other) const noexcept
+        -:   88:{
+        9:   89:        return state == 'X' || other.state == 'X' || state == other.state;
+        -:   90:}
+        -:   91:
+        -:   92:
+        9:   93:bool TriSignal::operator != (const TriSignal& other) const noexcept
+        -:   94:{
+        9:   95:        return state == 'X' || other.state == 'X' || state != other.state;
+        -:   96:}
+        -:   97:
+        -:   98:
+        9:   99:bool TriSignal::operator > (const TriSignal& other) const noexcept
+        -:  100:{
+        9:  101:        if ((state == 'X' && other.state == '1') ||
+        8:  102:                (state == '0' && other.state == 'X'))
+        2:  103:                return false;
+        7:  104:        return state == 'X' || other.state == 'X' || state > other.state;
+        -:  105:}
+        -:  106:
+        -:  107:
+        9:  108:bool TriSignal::operator < (const TriSignal& other) const noexcept
+        -:  109:{
+        9:  110:        if ((state == '1' && other.state == 'X') ||
+        8:  111:                (state == 'X' && other.state == '0'))
+        2:  112:                return false;
+        7:  113:        return state == 'X' || other.state == 'X' || state < other.state;
+        -:  114:}
+        -:  115:
+        -:  116:
+        9:  117:bool TriSignal::operator >= (const TriSignal& other) const noexcept
+        -:  118:{
+        9:  119:        return state == 'X' || other.state == 'X' || state >= other.state;
+        -:  120:}
+        -:  121:
+        -:  122:
+        9:  123:bool TriSignal::operator <= (const TriSignal& other) const noexcept
+        -:  124:{
+        9:  125:        return state == 'X' || other.state == 'X' || state <= other.state;
+        -:  126:}
+        -:  127:
+        -:  128:
+        9:  129:TriSignal TriSignal::operator + (const TriSignal& other) const noexcept
+        -:  130:{
+        9:  131:        if (state == 'X' || other.state == 'X')
+        5:  132:                return TriSignal('X');
+        -:  133:
+        4:  134:        if (state == other.state)
+        2:  135:                return TriSignal('0');
+        -:  136:
+        2:  137:        return TriSignal('1');
+        -:  138:}
+        -:  139:
+        -:  140:
+        9:  141:TriSignal TriSignal::operator - (const TriSignal& other) const noexcept
+        -:  142:{
+        9:  143:        if (state == 'X' || other.state == 'X')
+        5:  144:                return TriSignal('X');
+        -:  145:
+        4:  146:        if (state == other.state)
+        2:  147:                return TriSignal('0');
+        -:  148:
+        2:  149:        return TriSignal('1');
+        -:  150:}
+        -:  151:
+        -:  152:
+        3:  153:TriSignal& TriSignal::operator ++() noexcept
+        -:  154:{
+        3:  155:        if (state != 'X')
+        2:  156:                state = 1 - (state - '0') + '0';
+        -:  157:
+        3:  158:        return *this;
+        -:  159:}
+        -:  160:
+        -:  161:
+        3:  162:TriSignal& TriSignal::operator --() noexcept
+        -:  163:{
+        3:  164:        if (state != 'X')
+        2:  165:                state = 1 - (state - '0') + '0';
+        -:  166:
+        3:  167:        return *this;
+        -:  168:}
+        -:  169:
+        -:  170:
+        3:  171:TriSignal TriSignal::operator ++(int) noexcept
+        -:  172:{
+        3:  173:        TriSignal saved(*this);
+        3:  174:        if (state != 'X')
+        2:  175:                state = 1 - (state - '0') + '0';
+        -:  176:
+        3:  177:        return saved;
+        -:  178:}
+        -:  179:
+        -:  180:
+        3:  181:TriSignal TriSignal::operator --(int) noexcept
+        -:  182:{
+        3:  183:        TriSignal saved(*this);
+        3:  184:        if (state != 'X')
+        2:  185:                state = 1 - (state - '0') + '0';
+        -:  186:
+        3:  187:        return saved;
+        -:  188:}
+        -:  189:
+        -:  190:
+        9:  191:TriSignal& TriSignal::operator = (const TriSignal& other) noexcept
+        -:  192:{
+        9:  193:        if (this != &other) {
+        9:  194:                state = other.state;
+        -:  195:        }
+        9:  196:        return *this;
+        -:  197:}
+        -:  198:
+        -:  199:
+        9:  200:TriSignal& TriSignal::operator += (const TriSignal& other) noexcept
+        -:  201:{
+        9:  202:        if (state == 'X' || other.state == 'X') {
+        5:  203:                state = 'X';
+        4:  204:        } else if (state == other.state) {
+        2:  205:                state = '0';
+        -:  206:        } else {
+        2:  207:                state = '1';
+        -:  208:        }
+        -:  209:
+        9:  210:        return *this;
+        -:  211:}
+        -:  212:
+        -:  213:
+        9:  214:TriSignal& TriSignal::operator -= (const TriSignal& other) noexcept
+        -:  215:{
+        9:  216:        if (state == 'X' || other.state == 'X') {
+        5:  217:                state = 'X';
+        4:  218:        } else if (state == other.state) {
+        2:  219:                state = '0';
+        -:  220:        } else {
+        2:  221:                state = '1';
+        -:  222:        }
+        -:  223:
+        9:  224:        return *this;
+        -:  225:}
+        -:  226:
+        -:  227:
+        3:  228:char TriSignal::chr() const noexcept
+        -:  229:{
+        3:  230:        return state;
+        -:  231:}
+        -:  232:
+        -:  233:
+        3:  234:TriSignal::operator char() const noexcept
+        -:  235:{
+        3:  236:        return state;
+        -:  237:}
+        -:  238:
+        -:  239:
+        3:  240:std::ostream& operator << (std::ostream& out, const TriSignal& signal)
+        -:  241:{
+        3:  242:        out << signal.getState();
+        3:  243:        return out;
+        -:  244:}
+        -:  245:
+        -:  246:
+        3:  247:std::istream& operator >> (std::istream& in, TriSignal& signal)
+        -:  248:{
+        -:  249:        char input;
+        3:  250:        in >> input;
+        -:  251:
+        3:  252:        signal.setState(input);
+        3:  253:        return in;
+        -:  254:}
