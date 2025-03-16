@@ -1,0 +1,45 @@
+s2 = input()
+
+znaki = '+-*/^'
+probel = ' '
+stek = [0]*100
+yk = 0
+
+def operation(v1, v2, symb):
+    if symb == '+':
+        return v1 + v2
+    
+    if symb == '-':
+        return v1 - v2
+    
+    if symb == '*':
+        return v1 * v2
+    
+    if symb == '/':
+        return v1 / v2
+    
+    if symb == '^':
+        return v1 ** v2
+
+
+for i in range(len(s2)):
+    if s2[i] == probel:
+        yk += 1
+        continue
+    if znaki.find(s2[i]) == -1:
+        # Если текущий символ не знак (то есть это цифра)
+        stek[yk] *= 10
+        stek[yk] += int(s2[i])
+        continue
+    
+    p = operation(stek[yk-2], stek[yk-1], s2[i])
+    yk -= 2
+    stek[yk] = p
+    stek[yk+1] = 0
+    yk += 1
+    
+    yk -= 1 # потому что следующим же шагом он переместится на следующий, т.к. после знака пробел
+
+print(stek[0])
+
+

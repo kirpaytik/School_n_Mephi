@@ -1,0 +1,44 @@
+# a+b*c/d = abc*d/+
+
+
+s = input()
+s2 = ''
+probel = ' '
+znaki = '+-*/^'
+prior = '+- */ ^'
+
+stek = [0]*10
+yk = 0      # указатель стека
+
+for i in range(len(s)):
+    if znaki.find(s[i]) == -1  or  probel.find(s[i]) == 0:
+        s2 += s[i]
+        continue
+    
+    if yk == 0:
+        stek[yk] = s[i]
+        yk += 1
+        continue
+    
+    if prior.find(s[i]) - prior.find(stek[yk-1]) > 1:
+        # Если приоритет текущего знака строки выше приоритета предыдущего знака
+        
+        stek[yk] = s[i]
+        yk += 1
+    else:
+        while (yk > 0 and prior.find(s[i]) - prior.find(stek[yk-1]) <= 1):
+            # Пока стек не пуст и приоритет последнего элемента стека <= приоритету текущего знака строки
+            
+            yk -= 1
+            s2 += stek[yk]
+        stek[yk] = s[i]
+        yk += 1
+
+while (yk > 0):
+    yk -= 1
+    s2 += stek[yk]
+
+    
+print(s2)
+
+
