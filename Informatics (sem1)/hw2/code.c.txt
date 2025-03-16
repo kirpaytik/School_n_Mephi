@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+float absf(float a) {
+    if (a < 0)
+        return -a;
+    return a;
+}
+
+float myexp(float x, float e, int *c) {
+    float sum=0, y=x*x, p=1;
+    int i=1;
+    while (absf(p) > e) {
+        sum += p;
+        p *= (-1)*y/i;
+        i++;
+        // printf("%d%s",i," ");
+        // printf("%f%s",p," ");
+        // printf("%f%s",sum,"\n");
+    }
+    *c = i-1;
+    return sum;
+}
+
+int main()
+{
+    float x,e;
+    int c;
+    scanf("%f%f",&x,&e);
+    float resmy = myexp(x,e,&c);
+    float resmath = expf(-x*x);
+    printf("%s%f%s", "e^(-x^2) = ", resmy, "\n");
+    printf("%s%d%s", "Количество членов ряда: ", c, "\n");
+    printf("%s%f", "Результат библиотеки math:", resmath);
+    
+    return 0;
+}

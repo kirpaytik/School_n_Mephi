@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int reverse(int x) {
+    int y=0;
+    while(x > 0) {
+        y = y*10 + x%10;
+        x /= 10;
+    }
+    return y;
+}
+
+int main()
+{
+    int a,b,c=0;
+    scanf("%d",&a);
+    b = reverse(a);
+    if (a == b) {
+        printf("%d%s%d",a," ",c);
+        return 1;
+    }
+    while(a!=b) {
+        a += b;
+        b = reverse(a);
+        c++;
+        if (c==20) {
+            printf("%s","Not found in 20 steps\n");
+            break;
+        }
+    }
+    printf("%d%s%d",a," ",c);
+    
+    return 0;
+}
