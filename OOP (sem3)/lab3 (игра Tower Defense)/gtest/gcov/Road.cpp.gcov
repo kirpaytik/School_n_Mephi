@@ -1,0 +1,32 @@
+        -:    0:Source:../cpp/Road.cpp
+        -:    0:Graph:Road.gcno
+        -:    0:Data:Road.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/Road.hpp"
+        -:    2:
+        -:    3:#include "../hpp/Cell.hpp"
+        -:    4:#include "../hpp/Enemy.hpp"
+        -:    5:#include "../hpp/MagicTrap.hpp"
+        -:    6:
+        -:    7:
+       60:    8:Road::Road(int x, int y) : Cell(x, y), enemy(nullptr), mtrap(nullptr), nextroad(nullptr) {}
+        -:    9:
+       40:   10:Road::Road(int x, int y, Enemy* enemy) : Cell(x, y), enemy(enemy), mtrap(nullptr), nextroad(nullptr) {}
+        -:   11:
+       40:   12:Road::Road(int x, int y, MagicTrap* mtrap): Cell(x, y), enemy(nullptr), mtrap(mtrap), nextroad(nullptr) {}
+        -:   13:
+       20:   14:Road::Road(int x, int y, Enemy* enemy, MagicTrap* mtrap) : Cell(x, y), enemy(enemy), mtrap(mtrap), nextroad(nullptr) {}
+        -:   15:
+      160:   16:Road::~Road() { delete enemy; delete mtrap; }
+        -:   17:
+        -:   18:
+      100:   19:Enemy* Road::getEnemy() const { return enemy; }
+       40:   20:void Road::setEnemy(Enemy* newenemy) { enemy = newenemy; }
+      120:   21:bool Road::isEmptyEnemy() const { return enemy == nullptr; }
+        -:   22:
+      100:   23:MagicTrap* Road::getMTrap() const { return mtrap; }
+       40:   24:void Road::setMTrap(MagicTrap* newmtrap) { mtrap = newmtrap; }
+      120:   25:bool Road::isEmptyMTrap() const { return mtrap == nullptr; }
+        -:   26:
+      100:   27:Road* Road::getNextRoad() const { return nextroad; }
+       20:   28:void Road::setNextRoad(Road* road) { nextroad = road; }

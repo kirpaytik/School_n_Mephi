@@ -1,0 +1,47 @@
+        -:    0:Source:../cpp/Tower.cpp
+        -:    0:Graph:Tower.gcno
+        -:    0:Data:Tower.gcda
+        -:    0:Runs:1
+        -:    1:#include "../hpp/Tower.hpp"
+        -:    2:
+        -:    3:#include "../hpp/DefBuild.hpp"
+        -:    4:#include "../hpp/BuildAttack.hpp"
+        -:    5:#include "../hpp/Landscape.hpp"
+        -:    6:
+        -:    7:#include "../hpp/PriceTable.hpp"
+        -:    8:
+        -:    9:
+     1313:   10:Tower::Tower(int cost, int level, int radius, int damage, AttackStrategy strat, int attackSpeed) :
+     1313:   11:        DefBuild(cost, level, radius, damage, strat), attackSpeed(attackSpeed), overheat(0) {}
+        -:   12:
+       60:   13:int Tower::getAttackSpeed() const { return attackSpeed; }
+        -:   14:
+        -:   15:// DefBuild methods
+       20:   16:BuildAttack* Tower::attack() const { return new BuildAttack(damage, nullptr); }
+      109:   17:bool Tower::isReady() const { return overheat == 0; }
+       20:   18:void Tower::setUnready() {overheat = attackSpeed; }
+       69:   19:void Tower::advanceReadiness() { --overheat; }
+        -:   20:
+     1253:   21:std::pair<int, int> Tower::getCoord(const Landscape* land) const
+        -:   22:{
+     1253:   23:        Field* field = land->getField(this);
+     1253:   24:        return std::make_pair(field->getX(), field->getY());
+        -:   25:}
+        -:   26:
+        -:   27:
+     1253:   28:void Tower::installOnCell(Landscape* land, int x, int y)
+        -:   29:{
+     1253:   30:        land->getField(x, y)->setBuild(this);
+     1253:   31:}
+        -:   32:
+        -:   33:
+       40:   34:void Tower::upgrade()
+        -:   35:{
+       40:   36:        DefBuild::upgrade(); // ++level;
+       40:   37:        BuildStats stats = PriceTable::instance().getBuildStats(BuildType::TOWER, strat, level);
+        -:   38:
+       40:   39:        cost = stats.cost;
+       40:   40:        radius = stats.radius;
+       40:   41:        damage = stats.damage;
+       40:   42:        attackSpeed = stats.attackspeed;
+       40:   43:}
