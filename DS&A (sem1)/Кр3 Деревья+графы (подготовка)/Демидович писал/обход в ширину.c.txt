@@ -1,0 +1,16 @@
+int shirina(...){
+    int* colors = calloc(graph->size, sizeof(int));
+    int* q = calloc(graph->size, sizeof(int));
+    q[0] = from;
+    int h = 1;
+    int t = 0;
+    while (t != graph->size){
+        for (int i = 0; i<graph->size - 1; i++){
+            if (graph->matrix[from][i] > 0 && colors[i] == 0){
+                q[h++] = i;
+            }
+        }
+        colors[t] = 1;
+        from = q[t++];
+    }
+}
